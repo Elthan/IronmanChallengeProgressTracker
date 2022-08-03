@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-lastest
+  runs-on: ubuntu-latest
 
   job_id:
     permissions:
