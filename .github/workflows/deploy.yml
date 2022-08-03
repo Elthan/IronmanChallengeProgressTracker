@@ -19,10 +19,11 @@ jobs:
       id-token: 'write'
 
     steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v2
+    - name: 'Checkout repository content'
+      uses: 'actions/checkout@v2'
 
     - id: 'auth'
+      name: 'Authenticate to GCloud'
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/825841044811/locations/global/workloadIdentityPools/ironman-challenge/providers/ironman-challenge-provider'
@@ -35,6 +36,7 @@ jobs:
         deliverables: 'app.yaml'
         promote: false
         version: 'v1'
+        credentials: $GOOGLE_GHA_CREDS_PATH
 
     # Example of using the output
     - id: 'test'
