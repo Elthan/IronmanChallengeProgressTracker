@@ -12,6 +12,8 @@ on:
   workflow_dispatch:
 
 jobs:
+  runs-on: ubuntu-lastest
+
   job_id:
     permissions:
       contents: 'read'
