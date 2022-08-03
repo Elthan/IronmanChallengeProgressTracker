@@ -12,9 +12,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
-
   job_id:
+    runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -26,8 +25,12 @@ jobs:
         workload_identity_provider: 'projects/825841044811/locations/global/workloadIdentityPools/ironman-challenge/providers/ironman-challenge-provider'
         service_account: 'ironmanchallengetracker@appspot.gserviceaccount.com'
 
-    - id: 'deploy'
+    - name: 'Deploy to App Engine'
       uses: 'google-github-actions/deploy-appengine@v0'
+      with:
+        deliverables: 'app.yaml'
+        promote: false
+        version: 'v1'
 
     # Example of using the output
     - id: 'test'
