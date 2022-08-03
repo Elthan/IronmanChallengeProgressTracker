@@ -6,7 +6,7 @@ name: Build CI
 on:
   push:
     branches: [ "dev" ]
-    paths-ignore: '.github/worksflows/*'
+    paths-ignore: '.github/**'
   pull_request:
     branches: [ "master" ]
 
