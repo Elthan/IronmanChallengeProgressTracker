@@ -36,7 +36,6 @@ jobs:
         deliverables: 'app.yaml'
         promote: false
         version: 'v1'
-        credentials: $GOOGLE_GHA_CREDS_PATH
 
     # Example of using the output
     - id: 'test'
