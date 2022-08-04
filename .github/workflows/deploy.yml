@@ -27,7 +27,7 @@ jobs:
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/825841044811/locations/global/workloadIdentityPools/ironman-challenge/providers/ironman-challenge-provider'
-        service_account: 'ironmanchallengetracker@appspot.gserviceaccount.com'
+        service_account: 'githubdeploy@ironmanchallengetracker.iam.gserviceaccount.com'
         project_id: 'ironmanchallengetracker'
 
     - name: 'Deploy to App Engine'
