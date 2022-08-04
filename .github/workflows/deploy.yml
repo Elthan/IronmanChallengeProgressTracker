@@ -28,13 +28,12 @@ jobs:
       with:
         workload_identity_provider: 'projects/825841044811/locations/global/workloadIdentityPools/ironman-challenge/providers/ironman-challenge-provider'
         service_account: 'githubdeploy@ironmanchallengetracker.iam.gserviceaccount.com'
-        project_id: 'ironmanchallengetracker'
 
     - name: 'Deploy to App Engine'
       uses: 'google-github-actions/deploy-appengine@v0'
       with:
         deliverables: 'app.yaml'
-        promote: false
+        promote: true
         version: 'v1'
 
     # Example of using the output
