@@ -35,21 +35,3 @@ jobs:
         deliverables: 'app.yaml'
         promote: true
         version: 'v1'
-
-    # Example of using the output
-    - id: 'test'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
-
-
-# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-lastest
-#     steps:
-#     - name: Deploy an App Engine app
-#       id: deploy-app
-#       uses: google-github-actions/deploy-appengine@v0.1.0
-#       with:
-#         project: ${{ secrets.gcp_project }}
-#         deliverables: app.yaml
-#         credentials: ${{ secrets.gcp_credentials }}
