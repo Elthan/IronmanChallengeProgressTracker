@@ -6,8 +6,5 @@ handlers:
     upload: build/(.*\..+)$
   # Catch all handler to index.html
   - url: /.*
-    secure: always
     static_files: index.html
     upload: build/index.html
-    redirect_http_response_code: 301
-    script: auto
