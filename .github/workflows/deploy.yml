@@ -39,6 +39,7 @@ jobs:
         path: './build'
 
   deploy:
+    needs: [build]
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -61,5 +62,5 @@ jobs:
       uses: 'google-github-actions/deploy-appengine@v0'
       with:
         deliverables: 'app.yaml'
-        promote: false
+        promote: true
         version: 'v1'
