@@ -1,9 +1,12 @@
 import React from "react";
-import MainPage from "./components/MainPage/MainPage";
+import { BrowserRouter as Router } from 'react-router-dom';
+import MainRoutes from './routes/MainRoutes'
 
 const App = () => {
     return (
-        <MainPage />
+        <Router>
+            <MainRoutes />
+        </Router>
     );
 };
 
