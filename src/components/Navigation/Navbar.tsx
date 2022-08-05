@@ -1,3 +1,4 @@
+import React from 'react';
 import { Disclosure } from '@headlessui/react'
 import Branding from './Branding';
 import Hamburger from './Hamburger';
@@ -29,10 +30,12 @@ export default function Navbar() {
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 {/* Navigation Branding */}
-                <Branding 
-                  name="EdisonPark"
-                  src="https://static-cdn.jtvnw.net/jtv_user_pictures/7bc3f928-d053-469d-83be-d7e8c7a5fe1c-profile_image-70x70.png"
-                />
+                <a className="flex rounded-md focus-ring" href='/'>
+                  <Branding 
+                    name="EdisonPark"
+                    src="https://static-cdn.jtvnw.net/jtv_user_pictures/7bc3f928-d053-469d-83be-d7e8c7a5fe1c-profile_image-70x70.png"
+                  />
+                </a>
                 
                 {/* Navigation Links  */}
                 <div className="hidden sm:block sm:ml-6">
@@ -43,7 +46,7 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-zinc-700 text-white' : 'text-gray-300 hover:bg-zinc-500 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          'px-3 py-2 rounded-md text-sm font-medium focus-ring'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -74,7 +77,7 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current ? 'bg-zinc-700 text-white' : 'text-gray-300 hover:bg-zinc-500 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium text-center'
+                    'block px-3 py-2 rounded-md text-base font-medium text-center focus-ring'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >

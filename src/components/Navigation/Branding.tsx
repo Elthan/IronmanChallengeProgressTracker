@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Brand {
   src: string,
   name: string

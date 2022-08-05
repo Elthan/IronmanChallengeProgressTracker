@@ -6,7 +6,6 @@ class MainPage extends React.Component {
         return (
             <div>
                 <Navbar />
-                <h1>Title</h1>
             </div>
         );
     }
