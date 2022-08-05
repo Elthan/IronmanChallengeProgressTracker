@@ -53,8 +53,10 @@ jobs:
         name: 'build'
         path: '~/build'
     
-    - name: 'Move app.yaml'
+    - name: 'Stat folder'
       run: 'ls -ahl **/*'
+    
+    - name: 'Move app.yaml'
       run: 'mv build/app.yaml .'
 
     - id: 'auth'
