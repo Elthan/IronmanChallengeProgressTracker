@@ -54,7 +54,7 @@ jobs:
         path: '~/build'
     
     - name: 'Stat folder'
-      run: 'ls -ahl */*'
+      run: 'ls -R'
     
     - name: 'Move app.yaml'
       run: 'mv build/app.yaml .'
