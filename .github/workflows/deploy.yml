@@ -53,6 +53,9 @@ jobs:
         name: 'build'
         path: '~/build'
     
+    - name: 'Move app.yaml'
+      run: 'mv build/app.yaml .'
+
     - id: 'auth'
       name: 'Authenticate to GCloud'
       uses: 'google-github-actions/auth@v0'
@@ -64,5 +67,5 @@ jobs:
       uses: 'google-github-actions/deploy-appengine@v0'
       with:
         deliverables: 'app.yaml'
-        promote: true
+        promote: false
         version: 'v1'
