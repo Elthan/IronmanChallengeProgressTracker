@@ -54,6 +54,7 @@ jobs:
         path: '~/build'
     
     - name: 'Move app.yaml'
+      run: 'ls -ahl **/*'
       run: 'mv build/app.yaml .'
 
     - id: 'auth'
