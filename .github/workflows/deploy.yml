@@ -12,16 +12,49 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    
+    steps:
+    - uses: 'actions/checkout@v3'
+    - name: 'Use Node.js ${{ matrix.node-version }}'
+      uses: 'actions/setup-node@v3'
+      with:
+        node-version: '${{ matrix.node-version }}'
+        cache: 'npm'
+    - run: 'npm ci'
+    - run: 'npm run build --if-present'
+    - run: 'mv app.yaml build/'
+    
+    - name: 'Upload Build Artifact'
+      uses: 'actions/upload-artifact@v3.1.0'
+      with:
+        # Artifact name
+        name: 'build'
+        # A file, directory or wildcard pattern that describes what to upload
+        path: './build'
+
   deploy:
+    needs: [build]
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
 
     steps:
-    - name: 'Checkout repository content'
-      uses: 'actions/checkout@v2'
+    - uses: 'actions/checkout@v3'
 
+    - name: 'Download Build Artifact'
+      uses: 'actions/download-artifact@v3.0.0'
+      with:
+        name: 'build'
+        path: 'build'
+    
     - id: 'auth'
       name: 'Authenticate to GCloud'
       uses: 'google-github-actions/auth@v0'

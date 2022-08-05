@@ -6,7 +6,9 @@ name: Build CI
 on:
   push:
     branches: [ "dev" ]
-    paths-ignore: '.github/**'
+    paths-ignore: 
+      - '.github/**'
+      - 'app.yaml'
   pull_request:
     branches: [ "master" ]
 
