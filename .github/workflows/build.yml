@@ -10,7 +10,7 @@ on:
       - '.github/**'
       - 'app.yaml'
   pull_request:
-    branches: [ "master" ]
+    branches: [ "dev", "master" ]
 
 jobs:
   build:

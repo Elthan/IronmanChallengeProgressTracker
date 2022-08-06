@@ -3,5 +3,4 @@
 .gitignore
 /node_modules/
 /src/
-scripts
-dist
+*~
