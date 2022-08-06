@@ -4,7 +4,7 @@ import Branding from './Branding';
 import Hamburger from './Hamburger';
 import ButtonLink from './ButtonLink';
 import NavItem from './NavItem';
-import { TWITCHPAGE } from '../../constants/Twitch';
+import { TWITCHPAGE, TWITCHICON } from '../../constants/Twitch';
 
 const navigation = [
   { name: 'Progress', href: '/', current: false },
@@ -30,7 +30,7 @@ export default function Navbar() {
                 <a className="flex rounded-md focus-ring" href='/'>
                   <Branding 
                     name="EdisonPark"
-                    src="https://static-cdn.jtvnw.net/jtv_user_pictures/7bc3f928-d053-469d-83be-d7e8c7a5fe1c-profile_image-70x70.png"
+                    src={TWITCHICON}
                   />
                 </a>
                 
