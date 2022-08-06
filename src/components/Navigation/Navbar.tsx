@@ -3,16 +3,13 @@ import { Disclosure } from '@headlessui/react'
 import Branding from './Branding';
 import Hamburger from './Hamburger';
 import ButtonLink from './ButtonLink';
+import NavItem from './NavItem';
 
 const navigation = [
-  { name: 'Progress', href: '#', current: false },
-  { name: 'Challenge', href: '#', current: false },
-  { name: 'About Me', href: '#', current: false },
+  { name: 'Progress', href: '/', current: false },
+  { name: 'Challenge', href: 'challenge', current: false },
+  { name: 'About Me', href: 'aboutme', current: false },
 ];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
 
 
 export default function Navbar() {
@@ -37,21 +34,15 @@ export default function Navbar() {
                   />
                 </a>
                 
-                {/* Navigation Links  */}
+                {/* Navigation Link Items  */}
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
+                      <NavItem 
+                        active={item.current}
+                        text={item.name}
                         href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-zinc-700 text-white' : 'text-gray-300 hover:bg-zinc-500 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium focus-ring'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      />
                     ))}
                   </div>
                 </div>
@@ -67,22 +58,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Navigation Links on Mobile  */}
+          {/* Navigation Lin Items on Mobile  */}
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
+                <NavItem 
+                  isCollapsible
+                  active={item.current}
+                  text={item.name}
                   href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-zinc-700 text-white' : 'text-gray-300 hover:bg-zinc-500 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium text-center focus-ring'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                />
               ))}
             </div>
           </Disclosure.Panel>
