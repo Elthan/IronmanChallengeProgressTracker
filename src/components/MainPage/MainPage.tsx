@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../Navigation/Navbar";
 
 class MainPage extends React.Component {
     render () {
         return (
-            <h1>Title</h1>
+            <div>
+                <Navbar />
+                <h1>Title</h1>
+            </div>
         );
     }
 }
