@@ -9,5 +9,6 @@
 }
 
 body {
-  background-color: #E9FBF5;
+  @apply bg-primary-100;
+  /* background-color: #BDEBDD; */
 }
