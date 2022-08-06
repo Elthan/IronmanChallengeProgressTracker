@@ -1,0 +1,1 @@
+export const TWITCHPAGE = "https://www.twitch.tv/edisonparklive";
