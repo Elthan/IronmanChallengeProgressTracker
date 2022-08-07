@@ -2,6 +2,8 @@
 
 export default function OverallProgress() {
     return (
-        <h1>GAME PROGRESS TOTAL</h1>
+        <button type="button" className="px-4 py-4" disabled>
+            TODO
+        </button>
     )
 }

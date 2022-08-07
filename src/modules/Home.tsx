@@ -10,13 +10,13 @@ function Home() {
             </div>
             <div className="flex flex-row justify-start order-2 space-x-4">
                 <div className="order-1">
-                    <GameProgress gameName='Valorant' />
+                    <GameProgress name='Valorant' icon="" />
                 </div>
                 <div className="order-2">
-                    <GameProgress gameName='Teamfight Tactics' />
+                    <GameProgress name='Teamfight Tactics' icon=""/>
                 </div>
                 <div className="order-3">
-                    <GameProgress gameName='Apex Legends' />
+                    <GameProgress name='Apex Legends' icon="" />
                 </div>
             </div>
         </div>

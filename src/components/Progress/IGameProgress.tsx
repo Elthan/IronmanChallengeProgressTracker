@@ -1,4 +1,6 @@
 
 export default interface IGameProgress {
-    gameName: string;
+    name: string;
+    icon: string;
+    
 }
