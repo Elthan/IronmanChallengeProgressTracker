@@ -1,9 +1,10 @@
 import React from "react";
+import HeroSection from "../components/Sections/HeroSection";
 
 function AboutMe() {
     return (
-        <div className="text-center">
-            <h1><em>This is the About Me page</em></h1>
+        <div className="">
+            <HeroSection />
         </div>
     );
 }
