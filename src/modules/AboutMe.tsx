@@ -1,5 +1,5 @@
 import React from "react";
-import EdisonWhoSection from "../components/Section/EdisonWhoSection";
+import EdisonWhoSection from "../components/Sections/EdisonWhoSection";
 
 function AboutMe() {
     return (
