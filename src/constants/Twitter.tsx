@@ -1,0 +1,1 @@
+export const GIGACHADEDISONPIC = "https://pbs.twimg.com/media/FDtneUGVIAgSzr8?format=jpg&name=4096x4096";
