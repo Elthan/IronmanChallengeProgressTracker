@@ -24,7 +24,7 @@ function EdisonWhoSection() {
 
         <div className="py-3 rounded-md bg-analogous-200">
           <img 
-            className="object-cover w-auto max-h-screen w-80 h-80"
+            className="object-cover w-80 h-80 translate-x-4 -translate-y-6 drop-shadow-2xl"
             src={GIGACHADEDISONPIC}
             alt="Edison Park" 
             loading="lazy"
