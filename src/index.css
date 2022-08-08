@@ -8,6 +8,10 @@
   }
 }
 
+html, body { 
+  scroll-behavior: smooth
+}
+
 body {
-  @apply bg-primary-100;
+  /* @apply bg-primary-100; */
 }
