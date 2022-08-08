@@ -6,6 +6,10 @@
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-800 focus:ring-white;
   }
+
+  .absolute-center {
+    @apply absolute transform -translate-x-1/2 -translate-y-1/2;
+  }
 }
 
 body {

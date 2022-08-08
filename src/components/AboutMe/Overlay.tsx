@@ -1,18 +1,16 @@
 import React from "react";
-import { TWITCHCLIP } from "../../constants/Twitch";
 
-function HeroSection() {
+interface OverlayProps {
+  title: string,
+  footerTitle: string
+}
+
+function Overlay({ title, footerTitle }: OverlayProps) {
   return (
-    <section className="bg-primary-10 relative sm:h-[calc(100vh-64px)] w-full mb-8">      
-      <video id="bgVideo" loop autoPlay muted playsInline className="relative object-cover h-full w-full hidden sm:block">
-        <source src={TWITCHCLIP} type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos
-      </video>
-      <img className="block sm:hidden" src="https://images6.alphacoders.com/107/1072679.jpg" alt=""/>
-      <div className="absolute top-0 left-0 w-full h-full bg-[rgb(0,0,0)] bg-opacity-70">
+    <div className="absolute top-0 left-0 w-full h-full bg-[rgb(0,0,0)] bg-opacity-80 sm:bg-opacity-50 overflow-hidden">
         <div id="overlayComponents" className="relative h-full flex flex-col items-center justify-end opacity-100">
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white ">
-            <h1 className="font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl w-min animate-pulse">IRONMAN CHALLENGE</h1>
+          <div className="absolute-center top-1/3 left-1/2 text-center text-white ">
+            <h1 className="font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl w-min animate-pulse">{title}</h1>
           </div>
           <div className="relative w-full flex flex-col items-center">
             <svg 
@@ -26,13 +24,12 @@ function HeroSection() {
             </svg>
 
             <div className="relative w-full py-3 sm:py-8 bg-primary-700 flex justify-center text-white">
-              <p className="font-semibold text-md">By Edison Park</p>
+              <p className="font-semibold text-md">{footerTitle}</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
   );
 }
 
-export default HeroSection;
+export default Overlay;

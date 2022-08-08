@@ -1,5 +1,5 @@
 import React from "react";
-import { GIGACHADEDISONPIC } from "../../constants/Twitter";
+import { GIGACHADEDISONPIC } from "../../../constants/Twitter";
 
 function EdisonWhoSection() {
   return (

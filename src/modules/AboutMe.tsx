@@ -1,6 +1,6 @@
 import React from "react";
-import EdisonWhoSection from "../components/Sections/EdisonWhoSection";
-import HeroSection from "../components/Sections/HeroSection";
+import EdisonWhoSection from "../components/AboutMe/Sections/EdisonWhoSection";
+import HeroSection from "../components/AboutMe/Sections/HeroSection";
 
 
 function AboutMe() {
