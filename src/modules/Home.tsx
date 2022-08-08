@@ -1,43 +1,63 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import OverallProgress from '../components/Progress/OverallProgress';
 import GameProgress from '../components/Progress/GameProgress';
-import { AllGameProgressResponse, ProgressService } from '../services/ProgressService';
+import Spinner from "../components/Utils/Spinner";
+import { GameInfoWrapper } from '../services/ProgressService';
+import { BASEURL } from '../constants/API';
 
-function Home() {
+export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [gameInfo, setGameInfo] = useState<GameInfoWrapper[]>([]);
 
-    const [progressInfo, setProgressInfo] = 
-        useState<AllGameProgressResponse | undefined>(undefined);
-
-    const progressCall = async () => {
-        return ProgressService.fetchAllGameProgress();
-    };
-
-    progressCall()
-        .then((r) => setProgressInfo(r))
-        .catch(() => setProgressInfo(undefined));
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const { data } = await axios.get<any>(
+                    BASEURL + "ironman/all"
+                );
+                var results = [];
+                for (let item in data) {
+                    results.push({
+                        name: item,
+                        info: data[item]
+                    });
+                }
+                setGameInfo(results);
+                setError(null);
+            } catch (err: any) {
+                setError(err.message);
+                setGameInfo([]);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchData();
+    }, []);
 
     return (
-        <div className="flex flex-col place-items-center w-full mx-4 my-4">
-            <div className="w-screen order-1">
+        <div className="flex flex-col place-items-center mx-4 my-4">
+            <div className="order-1">
                 <OverallProgress />
             </div>
             <div className="flex flex-row justify-start order-2 space-x-4">
-                <div className="order-1">
-                    <GameProgress name="Valorant"
-                        icon={progressInfo?.info[0].rankIconUrl}
-                        points={progressInfo?.info[0].pointsInRank}
-                        rank={progressInfo?.info[0].rank}
-                    />
-                </div>
-                <div className="order-2">
-                    <GameProgress name='Teamfight Tactics' icon=""/>
-                </div>
-                <div className="order-3">
-                    <GameProgress name='Apex Legends' icon="" />
-                </div>
+                {error ? <p>An error occured when fetching the data!</p> :
+                    isLoading ? ( <Spinner /> ) : (
+                        <>
+                        {gameInfo.map((value, index) => (
+                            <div className={`order-${index + 1}`}>
+                                <GameProgress 
+                                    name={value.name}
+                                    icon={value.info.rankIconUrl}
+                                    points={value.info.pointsInRank}
+                                    rank={value.info.rank} />
+                            </div>
+                        ))}
+                        </>
+                    )
+                }
             </div>
         </div>
     );
 }
-
-export default Home;
