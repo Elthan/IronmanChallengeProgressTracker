@@ -24,7 +24,7 @@ export default function Home() {
                         info: data[item]
                     });
                 }
-                setGameInfo(results);
+                setGameInfo(results.sort());
                 setError(null);
             } catch (err: any) {
                 setError(err.message);
@@ -46,7 +46,7 @@ export default function Home() {
                     isLoading ? ( <Spinner /> ) : (
                         <>
                         {gameInfo.map((value, index) => (
-                            <div className={`order-${index + 1}`}>
+                            <div key={value.name} className={`order-${index + 1}`}>
                                 <GameProgress 
                                     name={value.name}
                                     icon={value.info.rankIconUrl}
