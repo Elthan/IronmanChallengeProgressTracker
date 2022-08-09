@@ -15,3 +15,11 @@
 body {
   @apply bg-primary-100;
 }
+
+.slick-slide {
+  height: 400px;
+}
+
+.slick-slide img {
+  height: 400px;
+}
