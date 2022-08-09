@@ -13,14 +13,14 @@ export default function GameProgress(progress: IGameProgress) {
 
     return (
         <div className="flex flex-col flex-no-wrap flex-auto h-max">
-            <div className="basis-1/4 order-1 flex justify-center">
+            <div className="basis-1/4 order-1 flex justify-center decoration-solid">
                 <p><b>{gameName}</b></p>
             </div>
             <div className="basis-1/4 order-2 flex justify-center">
                 <img className="h-14 w-14" src={progress.icon} alt="Game icon" />
             </div>
-            <div className="basis-1/4 order-3 flex justify-center">
-                <p><b>RANK:</b> {progress.rank}</p>
+            <div className="basis-1/4 order-3 flex justify-center decoration-solid">
+                <p>{progress.rank}</p>
             </div>
             <div className="basis-1/4 order-4 w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${progress.points}%` }}></div>

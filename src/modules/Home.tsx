@@ -41,7 +41,7 @@ export default function Home() {
             <div className="order-1">
                 <OverallProgress />
             </div>
-            <div className="flex flex-col flex-wrap content-center order-2 w-screen sm:space-x-4 sm:flex-row sm:justify-center">
+            <div className="flex flex-col flex-wrap content-center order-2 w-screen space-y-4 sm:space-y-0 sm:space-x-4 sm:flex-row sm:justify-center">
                 {error ? <p>An error occured when fetching the data!</p> :
                     isLoading ? ( <Spinner /> ) : (
                         <>
