@@ -23,7 +23,7 @@ function HeroSection(props: HeroProps) {
   return (
     <section className={`bg-primary-10 relative sm:h-[calc(100vh-64px)] w-full ${props.cName}`}>      
       {/* Show Video on non-mobile */}
-      <video loop autoPlay muted playsInline className="relative object-cover h-full w-full hidden sm:block" poster={VALO_THUMBNAIL}>
+      <video loop autoPlay muted playsInline className="relative object-cover h-full w-full hidden sm:block">
         <source src={TWITCHCLIP} type="video/mp4" />
         Sorry, your browser doesn't support embedded videos
       </video>
