@@ -3,10 +3,10 @@ import EdisonWhoSection from "../components/AboutMe/Sections/EdisonWhoSection";
 import HeroSection from "../components/AboutMe/Sections/HeroSection";
 
 
-function AboutMe() {
+function AboutMe() {  
     return (
         <div className="">
-            <HeroSection />
+            <HeroSection cName="mb-6" />
             <EdisonWhoSection />
         </div>
     );
