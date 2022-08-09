@@ -1,6 +1,6 @@
 import React from "react";
 import { TWITCHCLIP } from "../../../constants/Twitch";
-import { VALO_THUMBNAIL, HERO_IMAGES } from "../../../constants/Images";
+import { HERO_IMAGES } from "../../../constants/Images";
 import Overlay from "../Overlay";
 import Slider from "react-slick";
 
