@@ -4,13 +4,13 @@ import Branding from './Branding';
 import Hamburger from './Hamburger';
 import ButtonLink from './ButtonLink';
 import NavItem from './NavItem';
+import { TWITCHPAGE, TWITCHICON } from '../../constants/Twitch';
 
 const navigation = [
   { name: 'Progress', href: '/', current: false },
   { name: 'Challenge', href: 'challenge', current: false },
   { name: 'About Me', href: 'aboutme', current: false },
 ];
-
 
 export default function Navbar() {
   return (
@@ -30,7 +30,7 @@ export default function Navbar() {
                 <a className="flex rounded-md focus-ring" href='/'>
                   <Branding 
                     name="EdisonPark"
-                    src="https://static-cdn.jtvnw.net/jtv_user_pictures/7bc3f928-d053-469d-83be-d7e8c7a5fe1c-profile_image-70x70.png"
+                    src={TWITCHICON}
                   />
                 </a>
                 
@@ -42,6 +42,7 @@ export default function Navbar() {
                         active={item.current}
                         text={item.name}
                         href={item.href}
+                        key={item.name}
                       />
                     ))}
                   </div>
@@ -52,7 +53,7 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <ButtonLink 
                   text="Watch" 
-                  href='https://www.twitch.tv/edisonparklive'
+                  href={TWITCHPAGE}
                 />
               </div>
             </div>
@@ -67,6 +68,7 @@ export default function Navbar() {
                   active={item.current}
                   text={item.name}
                   href={item.href}
+                  key={item.name}
                 />
               ))}
             </div>
