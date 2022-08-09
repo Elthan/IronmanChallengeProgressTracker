@@ -12,7 +12,7 @@ export default function GameProgress(progress: IGameProgress) {
     }
 
     return (
-        <div className="flex flex-col flex-no-wrap flex-auto h-max rounded-md border-2 border-t-4 shadow-md p-4 bg-primary-200">
+        <div className="flex flex-col flex-no-wrap flex-auto h-max rounded-md border-2 border-t-4 shadow-md shadow-gray-500 hover:shadow-black p-4 bg-primary-500">
             <div className="basis-1/4 order-1 flex justify-center decoration-solid">
                 <p><b>{gameName}</b></p>
             </div>
