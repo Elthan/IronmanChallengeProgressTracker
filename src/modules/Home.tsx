@@ -41,12 +41,12 @@ export default function Home() {
             <div className="order-1">
                 <OverallProgress />
             </div>
-            <div className="flex flex-row justify-start order-2 space-x-4">
+            <div className="flex flex-col flex-wrap content-center order-2 w-screen sm:space-x-4 sm:flex-row sm:justify-center">
                 {error ? <p>An error occured when fetching the data!</p> :
                     isLoading ? ( <Spinner /> ) : (
                         <>
                         {gameInfo.map((value, index) => (
-                            <div key={value.name} className={`order-${index + 1}`}>
+                            <div key={value.name} className={`order-${index + 1} w-1/2 sm:w-3/12`}>
                                 <GameProgress 
                                     name={value.name}
                                     icon={value.info.rankIconUrl}
