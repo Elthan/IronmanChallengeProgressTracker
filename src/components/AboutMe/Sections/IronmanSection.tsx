@@ -6,16 +6,16 @@ import { TWITCHPAGE, TWITCHCLIP_VALO2 } from "../../../constants/Twitch";
 
 function IronmanSection(props: SectionProps) {
   return (
-    <section className={`${props.cName} relative bg-zinc-50 pt-16 pb-20 px-4 lg:pt-32 lg:pb-28 overflow-hidden`}>
+    <section className={`${props.cName} relative bg-zinc-50 pt-16 pb-20 px-4 lg:pt-40 lg:pb-36 overflow-hidden`}>
+      {/* Border Decoration */}
+      <div className="absolute top-0 left-0 h-full w-8 border-zinc-200 border-r-[1px] lg:border-r-0"></div>
+      <div className="absolute top-0 left-0 w-4/5 h-16 border-zinc-200 border-b-[1px] lg:border-b-0"></div>
+
       {/* Background Text Decoration */}
       <h1 className=" absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
         <span>IRONMAN </span>
         <span>CHALLENGE</span>
       </h1>
-
-      {/* Border Decoration */}
-      <div className="absolute top-0 left-0 h-full w-8 border-zinc-200 border-r-[1px] lg:border-r-0"></div>
-      <div className="absolute top-0 left-0 w-4/5 h-16 border-zinc-200 border-b-[1px] lg:border-b-0"></div>
 
       <main className="relative flex flex-col lg:flex-row justify-center lg:space-x-[10%] mx-auto px-8 pt-8">
         <div className="relative mb-14 lg:mb-0 lg:w-max">
