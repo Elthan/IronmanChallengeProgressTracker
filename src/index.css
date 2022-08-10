@@ -23,3 +23,11 @@ body {
 .slick-slide img {
   height: 400px;
 }
+
+.text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #d4d4d8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}

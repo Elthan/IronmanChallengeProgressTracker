@@ -5,7 +5,7 @@ export const TFT_THUMBNAIL = 'https://images.gnwcdn.com/2019/usgamer/TEAMFIGHT-T
 export const APEX_THUMBNAIL = 'https://pbs.twimg.com/media/ENSu5LKWwAAs89Z?format=jpg&name=large';
 
 export const HERO_IMAGES = [
-  {src: VALO_THUMBNAIL, alt: "Valorant thumbnail"},
-  {src: TFT_THUMBNAIL, alt: "Teamfight Tactics thumbnail"},
-  {src: APEX_THUMBNAIL, alt: "Apex Legends thumbnail"},
+  {src: '/images/valo_thumbnail.jpg', alt: "Valorant thumbnail"},
+  {src: '/images/tft_thumbnail.jpg', alt: "Teamfight Tactics thumbnail"},
+  {src: '/images/apex_thumbnail.jfif', alt: "Apex Legends thumbnail"},
 ];
