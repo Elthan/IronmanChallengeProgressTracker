@@ -22,7 +22,6 @@ function Overlay({ title, footerTitle }: OverlayProps) {
             <div className="relative w-full py-3 sm:py-10 bg-primary-700 flex justify-center text-zinc-200">
               <RightAngledTriangle width="48" height="32" cName="hidden lg:block absolute bottom-0 left-0 fill-zinc-50" />
               <RightAngledTriangle width="32" height="30" cName="block lg:hidden absolute bottom-0 left-0 fill-zinc-50" />
-
               <p className="font-semibold text-md">{footerTitle}</p>
             </div>
           </div>

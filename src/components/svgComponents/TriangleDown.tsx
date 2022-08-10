@@ -7,7 +7,7 @@ function TriangleDown(props: SVGProps) {
     <svg 
       className={props.cName}
       width={props.width || '30'} height={props.height || '30'} 
-      viewBox="0 0 30 30" 
+      viewBox={`0 0 ${props.width || '30'} ${props.height || '30'} `}
       fill={props.fill || 'none'} 
       xmlns="http://www.w3.org/2000/svg"
     >
