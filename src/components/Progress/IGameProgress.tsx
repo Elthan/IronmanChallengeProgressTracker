@@ -3,4 +3,5 @@ export default interface IGameProgress {
     icon?: string;
     rank?: string;
     points?: number;
+    reachedTop1Percent: boolean;
 }

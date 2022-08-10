@@ -3,12 +3,10 @@ export interface GameInfo {
     rank: string;
     pointsInRank: number;
     rankIconUrl?: string;
+    reachedTop1Percent: boolean;
 }
 
 export interface GameInfoWrapper {
     name: string;
     info: GameInfo;
-}
-
-export class ProgressService {
 }
