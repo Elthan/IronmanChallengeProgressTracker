@@ -18,7 +18,6 @@ export default function GameProgress(progress: IGameProgress) {
     
     return (
         <div className={styling}>
-            <div className=""><img src="" /></div>
             <div className="basis-1/4 order-1 flex justify-center">
                 <p><b>{gameName}</b></p>
             </div>
