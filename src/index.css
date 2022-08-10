@@ -23,3 +23,30 @@ body {
 .slick-slide img {
   height: 400px;
 }
+
+.rank-float {
+  -webkit-animation: mover 1.5s infinite  alternate;
+  -moz-animation: mover 1.5s infinite alternate;
+  -o-animation: mover 1.5s infinite alternate;
+  animation: mover 1.5s infinite  alternate;
+}
+
+@-webkit-keyframes mover {
+  0% { transform: translateY(8px); }
+  100% { transform: translateY(-8px); }
+}
+
+@-moz-keyframes mover {
+  0% { transform: translateY(8px); }
+  100% { transform: translateY(-8px); }
+}
+
+@-o-keyframes mover {
+  0% { transform: translateY(8px); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes mover {
+  0% { transform: translateY(8px); }
+  100% { transform: translateY(-8px); }
+}
