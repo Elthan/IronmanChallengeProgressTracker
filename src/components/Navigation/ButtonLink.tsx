@@ -11,7 +11,7 @@ export default function ButtonLink(props: ButtonProps) {
       href={props.href}
       rel='noreferrer'
       target='_blank'
-      className={`${props.cName} bg-primary-500 text-white font-semibold rounded-sm py-2 px-4 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-800 focus:ring-white`}
+      className={`${props.cName} bg-primary-500 text-white font-semibold rounded-sm py-2 px-4 hover:bg-primary-700 focus-ring`}
     >
       {props.text}
     </a>
