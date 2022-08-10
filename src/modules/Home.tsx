@@ -79,7 +79,6 @@ export default function Home() {
                     )
                     :
                     (
-                        <>
                         <div className="flex flex-row justify-center bg-primary-200 space-x-4 text-center h-full overflow-hidden pb-4 border-primary-200">
                             {gameInfo.map((value, index) => (
                                 <GameProgress
@@ -91,7 +90,6 @@ export default function Home() {
                                     reachedTop1Percent={value.info.reachedTop1Percent} />
                             ))}
                         </div>
-                        </>
                     )
                 }
             </div>

@@ -37,7 +37,7 @@ export default function GameProgress(progress: IGameProgress) {
                 { progress.reachedTop1Percent ?
                     <div onClick={toggleProgress} className="order-2 cursor-pointer h-full w-full border-t-2 border-b-2 border-slate-400 flex flex-col justify-end">
                         <div style={{ height: `${ topPercent ? '100' : progress.points}%` }}
-                            className="bg-complementary-500 p-1.5 leading-none shadow-md shadow-gray-500 text-white pb-6">
+                            className="bg-complementary-500 p-1.5 leading-none shadow-md shadow-gray-500 text-white font-bold pb-6">
                                 { topPercent ? 'REACHED TOP 1%' : progress.points}
                             </div>
                     </div>
