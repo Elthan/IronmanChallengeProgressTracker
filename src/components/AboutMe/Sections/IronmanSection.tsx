@@ -1,19 +1,20 @@
 import React from "react";
 import SectionProps from "./SectionProps";
 import ButtonLink from "../../Navigation/ButtonLink";
-import { TWITCHPAGE, TWITCHCLIP_VALO2 } from "../../../constants/Twitch";
+import { TWITCHPAGE } from "../../../constants/Twitch";
 import AngleLine from "../../svgComponents/AngleLine";
+
+// Decorations
+import BorderDecoration from "../../Decorations/BorderDecoration";
 
 
 function IronmanSection(props: SectionProps) {
   return (
     <section className={`${props.cName} relative bg-zinc-50 pt-16 pb-20 px-4 lg:pt-40 lg:pb-36 overflow-hidden`}>
-      {/* Border Decoration */}
-      <div className="absolute top-0 left-0 h-full w-8 border-zinc-200 border-r-[1px] lg:w-12"></div>
-      <div className="absolute top-0 left-0 w-4/5 h-16 border-zinc-200 border-b-[1px] "></div>
+      <BorderDecoration />
 
       {/* Background Text Decoration */}
-      <h1 className=" absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
+      <h1 className="absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
         <span>IRONMAN </span>
         <span>CHALLENGE</span>
       </h1>
@@ -51,7 +52,7 @@ function IronmanSection(props: SectionProps) {
         <div className="relative w-full lg:w-1/3">
           <div className="aspect-[2/1] sm:aspect-[3/1] lg:aspect-[4/3] drop-shadow-2xl">
             <video loop autoPlay muted playsInline className="relative object-cover lg:aspect-[4/3] h-full w-full ">
-              <source src={TWITCHCLIP_VALO2} type="video/mp4" />
+              <source src="/videos/valo_deagle_highlight.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos
             </video>
             <div className="bg-primary-400 h-2 w-[20%] ml-auto"></div>
