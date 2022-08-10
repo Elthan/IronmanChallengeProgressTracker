@@ -17,7 +17,7 @@ export default function ProgressBar(values: IProgressBar) {
     }
 
     return (
-        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 my-2">
+        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-400 my-2">
             { values.topPercent ?
                 <div onClick={handleCheckBox} className="w-full bg-gray-200 rounded-full cursor-pointer">
                     <div className={styling} style={{ width: width }}>{text}</div>
