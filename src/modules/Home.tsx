@@ -51,7 +51,8 @@ export default function Home() {
                                     name={value.name}
                                     icon={value.info.rankIconUrl}
                                     points={value.info.pointsInRank}
-                                    rank={value.info.rank} />
+                                    rank={value.info.rank}
+                                    reachedTop1Percent={value.info.reachedTop1Percent} />
                             </div>
                         ))}
                         </>
