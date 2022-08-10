@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import OverallProgress from '../components/Progress/OverallProgress';
 import GameProgress from '../components/Progress/GameProgress';
 import Spinner from "../components/Utils/Spinner";
 import { GameInfoWrapper } from '../services/ProgressService';
@@ -38,8 +37,13 @@ export default function Home() {
 
     return (
         <div className="flex flex-col place-items-center mx-4 my-4">
-            <div className="order-1">
-                <OverallProgress />
+            <div className="order-1 p-4 h-24">
+                <div className="text-3xl font-semibold">
+                    <p>IRONMAN CHALLENGE PROGRESS</p>
+                </div>
+                <div className="text-center text-slate-600">
+                    <p>Current games</p>
+                </div>
             </div>
             <div className="flex flex-col flex-wrap content-center order-2 w-screen space-y-4 sm:space-y-0 sm:space-x-4 sm:flex-row sm:justify-center">
                 {error ? <p>An error occured when fetching the data!</p> :
