@@ -23,3 +23,38 @@ body {
 .slick-slide img {
   height: 400px;
 }
+
+.text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #d4d4d8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rank-float {
+  -webkit-animation: mover 1.5s infinite  alternate;
+  -moz-animation: mover 1.5s infinite alternate;
+  -o-animation: mover 1.5s infinite alternate;
+  animation: mover 1.5s infinite  alternate;
+}
+
+@-webkit-keyframes mover {
+  0% { transform: translateY(15px); }
+  100% { transform: translateY(-15px); }
+}
+
+@-moz-keyframes mover {
+  0% { transform: translateY(15px); }
+  100% { transform: translateY(-15px); }
+}
+
+@-o-keyframes mover {
+  0% { transform: translateY(15px); }
+  100% { transform: translateY(-15px); }
+}
+
+@keyframes mover {
+  0% { transform: translateY(15px); }
+  100% { transform: translateY(-15px); }
+}

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import IGameProgress from './IGameProgress';
-import ProgressBar from "./ProgressBar";
 
 export default function GameProgress(progress: IGameProgress) {
+
+    const [topPercent, setTopPercent] = useState(progress.reachedTop1Percent);
 
     let gameName : string;
     switch (progress.name.toLowerCase()) {
@@ -12,23 +13,42 @@ export default function GameProgress(progress: IGameProgress) {
         default: gameName = progress.name[0].toUpperCase() + progress.name.slice(1);
     }
 
-    const completedStyling = "border-amber-300 hover:border-amber-400";
-    let styling = "flex flex-col flex-no-wrap flex-auto h-max rounded-md border-2 border-t-4 shadow-md shadow-gray-500 hover:shadow-black p-4 bg-primary-500 ";
-    if (progress.reachedTop1Percent) styling += completedStyling;
+    function toggleProgress() {
+        setTopPercent(!topPercent);
+    }
     
     return (
-        <div className={styling}>
-            <div className="basis-1/4 order-1 flex justify-center">
-                <p><b>{gameName}</b></p>
-            </div>
-            <div className="basis-1/4 order-2 flex justify-center">
-                <img className="h-14 w-14" src={progress.icon} alt="Game icon" />
-            </div>
-            <div className="basis-1/4 order-3 flex justify-center">
-                <p>{progress.rank}</p>
-            </div>
-            <div className="basis-1/4 order-4">
-                <ProgressBar topPercent={progress.reachedTop1Percent} points={progress.points} />
+        <div key={progress.name} className={`order-${progress.index + 1} w-1/4 border-inherit border-2 md:-skew-x-6 transform
+                                            shadow-lg shadow-slate-800 hover:shadow-black hover:border-4
+                                            bg-primary-600 rounded-t-md rounded-b-md`}>
+            <div className="flex flex-col flex-no-wrap m-full h-full justify-between">
+                <div className={`${ progress.reachedTop1Percent ? 'from-amber-400 to-amber-200' : 'from-primary-600 to-analogous-200'}
+                        flex flex-col justify-between bg-gradient-to-t order-1 p-1 md:p-4 m-0.5 h-40 md:h-96 rounded-t-md`}>
+                    <div className="flex md:skew-x-6 justify-center font-bold text-md sm:text-lg md:text-xl lg:text-2xl text-slate-800">
+                        <p>{gameName}</p>
+                    </div>
+                    <div className="flex md:skew-x-6 justify-center md:p-4">
+                        <img className="h-12 w-12 md:h-24 md:w-24 rank-float" src={progress.icon} alt="Game icon" />
+                    </div>
+                    <div className="flex md:skew-x-6 justify-self-end justify-center italic text-sm md:text-xl lg:text-2xl text-slate-600">
+                        <p>{progress.rank}</p>
+                    </div>
+                </div>
+                { progress.reachedTop1Percent ?
+                    <div onClick={toggleProgress} className="order-2 cursor-pointer h-full w-full border-t-2 border-b-2 border-slate-400 flex flex-col justify-end">
+                        <div style={{ height: `${ topPercent ? '100' : progress.points}%` }}
+                            className="bg-complementary-500 p-1.5 leading-none shadow-md shadow-gray-500 text-white font-bold pb-6">
+                                { topPercent ? 'REACHED TOP 1%' : progress.points}
+                            </div>
+                    </div>
+                    :
+                    <div className="order-2 h-full w-full border-t-2 border-b-2 border-slate-400 flex flex-col justify-end">
+                        <div style={{ height: `${progress.points}%` }}
+                            className="bg-complementary-600 p-1.5 leading-none shadow-md shadow-gray-500 text-white pb-6">
+                                {progress.points}
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )
