@@ -55,7 +55,7 @@ export default function Home() {
     return (
         <div className="flex flex-col place-items-center overflow-hidden h-[calc(100vh-64px)] m-t-4">
             <div className={`order-1 ${ showStream ? `h-full` : `sm:h-16 md:h-80`} text-center w-screen`}>
-                <iframe title="twitch-stream" src="https://player.twitch.tv/?channel=edisonparklive&parent=localhost&muted=true&autoplay=false"
+                <iframe title="twitch-stream" src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=false`}
                     className="w-screen md:w-screen md:h-[calc(100vh-128px)]"
                     allowFullScreen>
                 </iframe>
