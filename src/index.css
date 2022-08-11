@@ -24,6 +24,37 @@ body {
   height: 400px;
 }
 
+/* .edison-profile {
+  background-image: url('https://mihubot.xyz/ironman/edison-profile.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.edison-profile:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background: linear-gradient(45deg, #e2f4ef, #2b7358);
+  background-size: 300%;
+  background-position: left;
+  animation: bg-animation 2s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+    opacity: 0;
+  }
+  100% {
+    background-position: right;
+    opacity: 0.2;
+  }
+} */
+
 .text-outline {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1.5px;

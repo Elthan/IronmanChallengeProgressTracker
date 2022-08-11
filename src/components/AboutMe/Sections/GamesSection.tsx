@@ -37,7 +37,7 @@ function GamesSection(props: SectionProps) {
 
   return (
     <section className={`${props.cName} relative bg-zinc-800 pt-36 pb-32 px-4 lg:pt-40 lg:pb-40 overflow-hidden`}>
-      <BorderDecoration noTop />
+      <BorderDecoration noTop noBottom noRight />
       <article className="px-8">
         <h1 className="text-zinc-50 font-bold text-6xl md:text-8xl text-center mb-16">The Games</h1>
         <Slider {...settings}>
@@ -62,7 +62,7 @@ function GamesSection(props: SectionProps) {
         </Slider>
       </article>
 
-      <RightAngledTriangle width="54" height="40" cName="hidden lg:block absolute bottom-0 right-0 fill-zinc-50 scale-x-[-1]"/>
+      <RightAngledTriangle width="48" height="40" cName="hidden lg:block absolute bottom-0 right-0 fill-zinc-50 scale-x-[-1]"/>
       <RightAngledTriangle width="32" height="30" cName="block lg:hidden absolute bottom-0 right-0 fill-zinc-50 scale-x-[-1]" />
     </section>
   );

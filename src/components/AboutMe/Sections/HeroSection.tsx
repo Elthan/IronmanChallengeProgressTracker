@@ -12,6 +12,7 @@ function HeroSection(props: HeroProps) {
     fade: true,
     infinite: true,
     autoplay: true,
+    arrows: false,
     autoplaySpeed: 4000,
     cssEase: "linear",
     speed: 800,

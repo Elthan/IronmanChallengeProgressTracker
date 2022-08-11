@@ -11,7 +11,7 @@ import BorderDecoration from "../../Decorations/BorderDecoration";
 function IronmanSection(props: SectionProps) {
   return (
     <section className={`${props.cName} relative bg-zinc-50 pt-16 pb-20 px-4 lg:pt-40 lg:pb-36 overflow-hidden`}>
-      <BorderDecoration />
+      <BorderDecoration noBottom noRight />
 
       {/* Background Text Decoration */}
       <h1 className="absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
@@ -24,7 +24,7 @@ function IronmanSection(props: SectionProps) {
           <div className="transform -translate-y-4 mb-2">
             <h1 className="text-primary-600 font-bold text-6xl md:text-8xl">What is it?</h1>
           </div>
-          <div className="relative lg:w-[500px] text-zinc-800 lg:ml-[10%]">
+          <div className="relative lg:w-[500px] text-primary-900 lg:ml-[10%]">
             <p className="mb-5">
               <strong>Ironman Challenge</strong> is a special event made by Edison Park inspired by the Ironman Triathlon. 
               The streamer will not end stream until they hit top 1% ranks in 3 different games.
@@ -51,7 +51,7 @@ function IronmanSection(props: SectionProps) {
 
         <div className="relative w-full lg:w-1/3">
           <div className="aspect-[2/1] sm:aspect-[3/1] lg:aspect-[4/3] drop-shadow-2xl">
-            <video loop autoPlay muted playsInline className="relative object-cover lg:aspect-[4/3] h-full w-full ">
+            <video loop autoPlay muted playsInline className="relative object-cover h-full w-full ">
               <source src="/videos/valo_deagle_highlight.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos
             </video>
