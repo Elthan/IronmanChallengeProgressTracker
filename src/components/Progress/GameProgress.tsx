@@ -28,7 +28,7 @@ export default function GameProgress(progress: IGameProgress) {
                         <p>{gameName}</p>
                     </div>
                     <div className="flex md:skew-x-6 justify-center md:p-4">
-                        <img className="h-12 w-12 md:h-24 md:w-24" src={progress.icon} alt="Game icon" />
+                        <img className="h-12 w-12 md:h-24 md:w-24 rank-float" src={progress.icon} alt="Game icon" />
                     </div>
                     <div className="flex md:skew-x-6 justify-self-end justify-center italic text-sm md:text-xl lg:text-2xl text-slate-600">
                         <p>{progress.rank}</p>
