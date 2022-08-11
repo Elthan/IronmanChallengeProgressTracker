@@ -10,10 +10,6 @@ function EdisonWhoSection(props: SectionProps) {
 
       <main className="relative flex flex-col xl:flex-row lg:space-x-[10%] mx-auto px-8 pt-8" >
         <div className="py-3 bg-primary-600 xl:w-1/2">
-          {/* <div
-            className="edison-profile aspect-square w-[50%] xl:w-[60%] scale-x-[-1] translate-x-4 -translate-y-6 drop-shadow-2xl"
-          /> */}
-
           <img 
             className="object-cover aspect-square w-[50%] xl:w-[60%] scale-x-[-1] translate-x-4 -translate-y-6 drop-shadow-2xl"
             src={GIGACHADEDISONPIC}
