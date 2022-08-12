@@ -12,7 +12,7 @@ export interface IGameProgress {
 
 export default function GameProgress(progress: IGameProgress) {
     return (
-        <div key={progress.name} className="flex flex-row break-word flex-no-wrap lg:flex-col justify-between lg:justify-center items-center lg:justify-center w-full lg:w-36 pb-4 hover:bg-zinc-700 text-start lg:text-center">
+        <div key={progress.name} className="flex flex-row break-word flex-no-wrap lg:flex-col justify-between lg:justify-center items-center w-full lg:w-36 lg:pb-4 hover:bg-zinc-700 text-start lg:text-center">
             <div className="order-1 w-1/12 sm:w-32 lg:w-full lg:h-16 lg:pt-2 flex justify-center align-center">
                 <div className="block md:hidden">{progress.reachedTop1Percent ? (<CircleCheck width="24" height="24" fill="#3DA281" />) : ''}</div>
                 <div className="hidden md:block">{progress.reachedTop1Percent ? (<CircleCheck fill="#3DA281" />) : ''}</div>
@@ -31,7 +31,7 @@ export default function GameProgress(progress: IGameProgress) {
                             {progress.points}
                     </div>
                     <div style={{ width: `${progress.points}%`}}
-                        className="bg-primary-500 p-0.5 h-full flex items-center shadow-sm shadow-gray-500 text-zinc-100 pr-4 block lg:hidden">
+                        className="bg-primary-500 p-0.5 h-full flex items-center shadow-sm shadow-gray-500 text-zinc-100 pr-4 lg:hidden">
                             {progress.points}
                     </div>
                 </div>

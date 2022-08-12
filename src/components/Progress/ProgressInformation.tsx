@@ -71,15 +71,15 @@ export default function ProgressInformation() {
                     ( <></> )
                     :
                     (
-                        <div className="flex flex-col lg:flex-row justify-center pt-2 lg:pt-0 space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full w-full">
+                        <div className="flex flex-col lg:flex-row justify-center pb-2 lg:pb-0 pt-2 lg:pt-0 space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full w-full">
                             {gameInfo.map((value, index) => (
                                 <GameProgress
-                                index={index}
-                                name={value.name}
-                                icon={value.info.rankIconUrl}
-                                points={value.info.pointsInRank}
-                                rank={value.info.rank}
-                                reachedTop1Percent={value.info.reachedTop1Percent} />
+                                    index={index}
+                                    name={value.name}
+                                    icon={value.info.rankIconUrl}
+                                    points={value.info.pointsInRank}
+                                    rank={value.info.rank}
+                                    reachedTop1Percent={value.info.reachedTop1Percent} />
                             ))}
                         </div>
                     )
