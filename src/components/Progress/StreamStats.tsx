@@ -1,24 +1,40 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASEURL } from "../../constants/API";
+import { START_TIME_UTC } from "../../constants/Challenge";
+
+interface Uptime {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+}
 
 export default function StreamStats() {
-    const [uptime, setUptime] = useState();
+    const [uptime, setUptime] = useState<Uptime | undefined>();
 
     useEffect(() => {
-        async function fetchUptime() {
-            try {
-                const { data } = await axios.get<any>(
-                    `${BASEURL}/potter-ironman-uptime`
-                );
+        function calculateUptime() {
+            let delta = Math.abs(Date.now().valueOf() - new Date(START_TIME_UTC).valueOf());
+            
+            const msInDay = 24 * 60 * 60 * 1000;
+            let days = Math.floor(delta / msInDay);
+            delta -= (days * msInDay);
 
-                setUptime(data);
-            } catch (err: any) {
-                console.log(`Error occurred: ${err}`)
-            }
+            const msInHours = 60 * 60 * 1000;
+            let hours = Math.floor(delta / msInHours);
+            delta -= hours * msInHours;
+
+            const msInMinutes = 60 * 1000;
+            let minutes = Math.floor(delta / msInMinutes);
+            delta -= minutes * msInMinutes;
+
+            const msInSeconds = 1000;
+            let seconds = Math.floor(delta / msInSeconds);
+            delta -= seconds * msInSeconds;
+
+            setUptime({days, hours, minutes, seconds});
         }
-        fetchUptime();
-        // setInterval(() => {fetchUptime()}, 3000);
+        calculateUptime();
+        setInterval(() => calculateUptime(), 1000)
     }, []);
 
     return (
@@ -27,9 +43,10 @@ export default function StreamStats() {
                 STATS
             </div>
             <div className="order-2 pt-2">
-                { uptime === undefined ? "Time since start of challenge - "                  
-                : uptime
-                }
+                <div className="font-bold">Time elapsed</div>
+                <div >
+                    {`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} minutes ${uptime?.seconds || 0} seconds`}
+                </div>
             </div>
         </div>
     )
