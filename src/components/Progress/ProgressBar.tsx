@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { IProgressBar } from "./IProgressBar";
+
+export interface IProgressBar {
+    topPercent: boolean
+    points?: number
+}
 
 export default function ProgressBar(values: IProgressBar) {
 
