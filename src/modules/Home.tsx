@@ -20,7 +20,7 @@ export default function Home() {
                 </button>
             </div>
             <div className="order-1 lg:order-3 h-full w-full lg:h-[calc(100vh-4rem)]">
-                <iframe title="twitch-stream" src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=false`}
+                <iframe title="twitch-stream" src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=true`}
                         className="w-full h-full"
                         allowFullScreen>
                 </iframe>
