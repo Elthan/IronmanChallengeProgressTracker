@@ -29,7 +29,7 @@ export default function ProgressInformation() {
         async function fetchData() {
             try {
                 const { data } = await axios.get<any>(
-                    BASEURL + "ironman/all"
+                    BASEURL + "/all"
                 );
                 var results = [];
                 for (let item in data) {

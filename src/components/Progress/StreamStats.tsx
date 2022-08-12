@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BASEURL } from "../../constants/API";
 
 export default function StreamStats() {
     const [uptime, setUptime] = useState();
@@ -8,7 +9,7 @@ export default function StreamStats() {
         async function fetchUptime() {
             try {
                 const { data } = await axios.get<any>(
-                    "https://mihubot.xyz/api/ironman/potter-ironman-uptime"
+                    `${BASEURL}/potter-ironman-uptime`
                 );
 
                 setUptime(data);
