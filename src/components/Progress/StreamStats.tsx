@@ -1,49 +1,41 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { BASEURL } from "../../constants/API";
 import { START_TIME_UTC } from "../../constants/Challenge";
 
+interface Uptime {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+}
+
 export default function StreamStats() {
-    const [uptime, setUptime] = useState();
-    const [days, setDays] = useState(0);
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
-
-    // useEffect(() => {
-    //     async function fetchUptime() {
-    //         try {
-    //             const { data } = await axios.get<any>(
-    //                 `${BASEURL}/potter-ironman-uptime`
-    //             );
-
-    //             setUptime(data);
-    //         } catch (err: any) {
-    //             console.log(`Error occurred: ${err}`)
-    //         }
-    //     }
-    //     fetchUptime();
-    //     // setInterval(() => {fetchUptime()}, 3000);
-    // }, []);
+    const [uptime, setUptime] = useState<Uptime | undefined>();
 
     useEffect(() => {
         function calculateUptime() {
-            let delta = new Date(START_TIME_UTC).valueOf();
-            let days = delta / 86400 % 24;
-            delta -= days * 86400;
+            let delta = Math.abs(Date.now().valueOf() - new Date(START_TIME_UTC).valueOf());
+            
+            const msInDay = 24 * 60 * 60 * 1000;
+            let days = Math.floor(delta / msInDay);
+            delta -= (days * msInDay);
 
-            let hours = delta / 3600 % 60;
-            delta -= hours * 3600;
+            const msInHours = 60 * 60 * 1000;
+            let hours = Math.floor(delta / msInHours);
+            delta -= hours * msInHours;
 
-            let minutes = delta / 60 % 60;
-            delta -= minutes * 60;
+            const msInMinutes = 60 * 1000;
+            let minutes = Math.floor(delta / msInMinutes);
+            delta -= minutes * msInMinutes;
 
-            setDays(days);
-            setHours(hours);
-            setMinutes(minutes);
-            setSeconds(delta);
+            const msInSeconds = 1000;
+            let seconds = Math.floor(delta / msInSeconds);
+            delta -= seconds * msInSeconds;
+
+            setUptime({days, hours, minutes, seconds});
         }
-    });
+        calculateUptime();
+        setInterval(() => calculateUptime(), 1000)
+    }, []);
 
     return (
         <div className="flex flex-col">
@@ -51,7 +43,10 @@ export default function StreamStats() {
                 STATS
             </div>
             <div className="order-2 pt-2">
-                { uptime === undefined ? "Time since start of challenge - " : uptime }
+                <div className="font-bold">Time elapsed</div>
+                <div >
+                    {`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} minutes ${uptime?.seconds || 0} seconds`}
+                </div>
             </div>
         </div>
     )
