@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react'
 
 
@@ -23,16 +23,16 @@ function getActiveLinkStyle(active: boolean) {
 export default function NavItem(props: NavItemProps) {
   if (!props.isCollapsible) {
     return (
-      <Link
+      <NavLink
         to={props.href}
         aria-current={props.active ? 'page' : undefined}
-        className={classNames(
-          getActiveLinkStyle(props.active),
-          'px-3 py-2 rounded-md text-sm font-medium focus-ring'
+        className={({ isActive }) => classNames(
+          getActiveLinkStyle(isActive), 
+          'px-3 py-2 rounded-sm text-sm font-medium focus-ring'
         )}
       >
         {props.text}
-      </Link> 
+      </NavLink> 
     );
   }
 
@@ -40,7 +40,7 @@ export default function NavItem(props: NavItemProps) {
     <Disclosure.Button
       key={props.text}
       to={props.href}
-      as={Link}
+      as={NavLink}
       className={classNames(
         getActiveLinkStyle(props.active),
         'block px-3 py-2 rounded-md text-base font-medium text-center focus-ring'
