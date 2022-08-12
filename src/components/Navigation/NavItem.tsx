@@ -16,7 +16,7 @@ function classNames(...classes: string[]) {
 
 function getActiveLinkStyle(active: boolean) {
   return (
-    active ? 'bg-zinc-700 text-white' : 'text-gray-300 hover:bg-zinc-500 hover:text-white'
+    active ? 'bg-zinc-700 text-white' : 'text-zinc-300 hover:bg-zinc-500 hover:text-white'
   );
 }
 
