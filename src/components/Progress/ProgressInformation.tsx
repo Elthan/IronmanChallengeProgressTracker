@@ -54,12 +54,12 @@ export default function ProgressInformation() {
 
     return (
         <div className="flex flex-col h-full w-full divide divide-y-[0.1rem] divide-zinc-500 justify-center text-zinc-100 text-center">
-            <div className="order-1 h-full flex flex-col justify-between text-start">
-                <div className="order-1 h-32 p-2">
+            <div className="order-1 h-full flex flex-col divide-y-[0.1rem] divide-zinc-500 justify-between text-start">
+                <div className="order-1 h-32 p-4">
                     <StreamStats />
                 </div>
-                <div className="order-2 h-fit pb-4 lg:pb-2 text-start">
-                    <div className="uppercase font-bold pl-2">GOALS</div>
+                <div className="order-2 h-fit pb-4 lg:pb-2 text-center">
+                    <div className="uppercase font-bold">GOALS</div>
                     {gameInfo.map((value, index) => (
                         <GameGoals index={index} game={value.name} rank={value.info.rankGoal} icon={value.info.rankGoalIcon} />
                     ))}
@@ -74,12 +74,12 @@ export default function ProgressInformation() {
                         <div className="flex flex-col lg:flex-row justify-center pt-2 lg:pt-0 space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full w-full">
                             {gameInfo.map((value, index) => (
                                 <GameProgress
-                                    index={index}
-                                    name={value.name}
-                                    icon={value.info.rankIconUrl}
-                                    points={value.info.pointsInRank}
-                                    rank={value.info.rank}
-                                    reachedTop1Percent={value.info.reachedTop1Percent} />
+                                index={index}
+                                name={value.name}
+                                icon={value.info.rankIconUrl}
+                                points={value.info.pointsInRank}
+                                rank={value.info.rank}
+                                reachedTop1Percent={value.info.reachedTop1Percent} />
                             ))}
                         </div>
                     )

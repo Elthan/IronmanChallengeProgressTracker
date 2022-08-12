@@ -21,10 +21,10 @@ export default function StreamStats() {
 
     return (
         <div className="flex flex-col">
-            <div className="order-1 uppercase font-bold">
+            <div className="order-1 uppercase font-bold text-center">
                 STATS
             </div>
-            <div className="order-2">
+            <div className="order-2 pt-2">
                 { uptime === undefined ? "Time since start of challenge - "                  
                 : uptime
                 }

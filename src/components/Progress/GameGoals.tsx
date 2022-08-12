@@ -7,7 +7,7 @@ export interface IGameGoals {
 
 export default function GameGoals(goals: IGameGoals) {
     return (
-        <div key={goals.game} className={`flex flex-row justify-between w-full px-2 uppercase py-1 hover:bg-zinc-700`}>
+        <div key={goals.game} className={`flex flex-row justify-between w-full px-4 uppercase py-1 hover:bg-zinc-700`}>
             <div className="order-1">{goals.game}</div>
             <div className="order-2 justify-end flex flex-col">
                 <div>{goals.rank}</div>
