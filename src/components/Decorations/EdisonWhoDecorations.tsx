@@ -8,7 +8,7 @@ function EdisonWhoDecorations() {
       <BorderDecoration noTop />
 
       {/* Background Giant Text */}
-      <h1 className="absolute left-0 top-0 leading-none text-[20vw] font-bold text-outline transform xl:rotate-90">
+      <h1 className="select-none cursor-default absolute left-0 top-0 leading-none text-[20vw] font-bold text-outline transform xl:rotate-90">
         <div>EDISON</div>
         <div>PARK</div>
       </h1>
@@ -23,7 +23,7 @@ function EdisonWhoDecorations() {
       <div className="absolute right-16 w-2 h-[10%] bg-zinc-200 translate-y-12"></div>
 
       {/* Small Backward Text */}
-      <h1 className="absolute bottom-10 right-10 font-semibold text-primary-300 scale-x-[-1] ">
+      <h1 className="cursor-default absolute bottom-10 right-10 font-semibold text-primary-300 scale-x-[-1] ">
         OLDISON PARK
       </h1>
     </>

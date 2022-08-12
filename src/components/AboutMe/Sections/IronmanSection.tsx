@@ -14,7 +14,7 @@ function IronmanSection(props: SectionProps) {
       <BorderDecoration noBottom noRight />
 
       {/* Background Text Decoration */}
-      <h1 className="absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
+      <h1 className="select-none cursor-default absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
         <span>IRONMAN </span>
         <span>CHALLENGE</span>
       </h1>
@@ -34,7 +34,7 @@ function IronmanSection(props: SectionProps) {
             </p>
             <p>The rules are:</p>
             <ul className="list-decimal pl-6">
-              <li>Ranks must be attaned on fresh accounts.</li>
+              <li>Ranks must be attained on fresh accounts.</li>
               <li>Each rank can be attained separately at any time.</li>
               <li>Not ending stream until the challenge is completed!</li>
             </ul>

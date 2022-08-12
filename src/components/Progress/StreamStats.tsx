@@ -17,7 +17,8 @@ export default function StreamStats() {
                 console.log(`Error occurred: ${err}`)
             }
         }
-        setInterval(() => {fetchUptime()}, 3000);
+        fetchUptime();
+        // setInterval(() => {fetchUptime()}, 3000);
     }, []);
 
     return (

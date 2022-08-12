@@ -8,7 +8,7 @@ import { TWITCHPAGE, TWITCHICON } from '../../constants/Twitch';
 
 const navigation = [
   { name: 'Progress', href: '/', current: false },
-  { name: 'Challenge', href: 'challenge', current: false },
+  // { name: 'Challenge', href: 'challenge', current: false },
   { name: 'About Me', href: 'aboutme', current: false },
 ];
 
