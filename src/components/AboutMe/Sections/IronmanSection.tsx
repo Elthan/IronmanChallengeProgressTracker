@@ -34,7 +34,7 @@ function IronmanSection(props: SectionProps) {
             </p>
             <p>The rules are:</p>
             <ul className="list-decimal pl-6">
-              <li>Ranks must be attaned on fresh accounts.</li>
+              <li>Ranks must be attained on fresh accounts.</li>
               <li>Each rank can be attained separately at any time.</li>
               <li>Not ending stream until the challenge is completed!</li>
             </ul>
