@@ -14,7 +14,7 @@ function IronmanSection(props: SectionProps) {
       <BorderDecoration noBottom noRight />
 
       {/* Background Text Decoration */}
-      <h1 className="absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
+      <h1 className="select-none cursor-default absolute bottom-0 lg:top-0 leading-none text-[22vw] font-bold text-outline transform lg:rotate-90 translate-x-[12%] lg:translate-y-[35%]">
         <span>IRONMAN </span>
         <span>CHALLENGE</span>
       </h1>
