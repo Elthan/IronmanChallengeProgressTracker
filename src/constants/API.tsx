@@ -1,1 +1,1 @@
-export const BASEURL = "https://mihubot.xyz/api/";
+export const BASEURL = "https://mihubot.xyz/api/ironman";
