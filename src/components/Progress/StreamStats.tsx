@@ -25,7 +25,7 @@ export default function StreamStats() {
                 STATS
             </div>
             <div className="order-2">
-                { uptime == undefined ? "Time since start of challenge - "                  
+                { uptime === undefined ? "Time since start of challenge - "                  
                 : uptime
                 }
             </div>
