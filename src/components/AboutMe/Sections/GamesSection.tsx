@@ -3,6 +3,7 @@ import SectionProps from "./SectionProps";
 import BorderDecoration from "../../Decorations/BorderDecoration";
 import RightAngledTriangle from "../../svgComponents/RightAngledTriangle";
 import Slider from "react-slick";
+import { VALO_THUMBNAIL, TFT_THUMBNAIL, APEX_THUMBNAIL } from "../../../constants/Images";
 
 
 function GamesSection(props: SectionProps) {
@@ -43,19 +44,19 @@ function GamesSection(props: SectionProps) {
         <Slider {...settings}>
           <div className="relative group">
             <div className="overflow-hidden">
-              <img className="object-cover transition-all group-hover:scale-125" src="/images/valo_thumbnail.jpg" alt="Valorant thumbnail" />
+              <img className="object-cover transition-all group-hover:scale-125" src={VALO_THUMBNAIL} alt="Valorant thumbnail" />
             </div>
             <h4 className="text-zinc-200 font-semibold text-xl mt-1 ml-2" >Valorant</h4>
           </div>
           <div className="relative group ">
             <div className="overflow-hidden">
-              <img className="object-cover transition-all group-hover:scale-125" src="/images/tft_thumbnail.jpg" alt="TFT thumbnail" />
+              <img className="object-cover transition-all group-hover:scale-125" src={TFT_THUMBNAIL} alt="TFT thumbnail" />
             </div>
             <h4 className="text-zinc-200 font-semibold text-xl mt-1 ml-2">Teamfight Tactics</h4>
           </div>
           <div className="relative group ">
             <div className="overflow-hidden">
-              <img className="object-cover transition-all group-hover:scale-125" src="/images/apex_thumbnail.jpg" alt="Apex thumbnail" />
+              <img className="object-cover transition-all group-hover:scale-125" src={APEX_THUMBNAIL} alt="Apex thumbnail" />
             </div>
             <h4 className="text-zinc-200 font-semibold text-xl mt-1 ml-2">Apex Legends</h4>
           </div>

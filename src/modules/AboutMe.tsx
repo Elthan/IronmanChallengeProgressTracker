@@ -3,6 +3,7 @@ import EdisonWhoSection from "../components/AboutMe/Sections/EdisonWhoSection";
 import HeroSection from "../components/AboutMe/Sections/HeroSection";
 import IronmanSection from "../components/AboutMe/Sections/IronmanSection";
 import GamesSection from "../components/AboutMe/Sections/GamesSection";
+import Footer from "../components/AboutMe/Footer";
 
 
 function AboutMe() {  
@@ -12,6 +13,7 @@ function AboutMe() {
             <IronmanSection />
             <GamesSection />
             <EdisonWhoSection />
+            <Footer />
         </div>
     );
 }

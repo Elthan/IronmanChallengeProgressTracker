@@ -1,7 +1,7 @@
 import React from "react";
 import SectionProps from "./SectionProps";
 import ButtonLink from "../../Navigation/ButtonLink";
-import { TWITCHPAGE } from "../../../constants/Twitch";
+import { TWITCHPAGE, TWITCHCLIP_VALO_HIGHLIGHT } from "../../../constants/Twitch";
 import AngleLine from "../../svgComponents/AngleLine";
 
 // Decorations
@@ -52,7 +52,7 @@ function IronmanSection(props: SectionProps) {
         <div className="relative w-full lg:w-1/3">
           <div className="aspect-[2/1] sm:aspect-[3/1] lg:aspect-[4/3] drop-shadow-2xl">
             <video loop autoPlay muted playsInline className="relative object-cover h-full w-full ">
-              <source src="/videos/valo_deagle_highlight.mp4" type="video/mp4" />
+              <source src={TWITCHCLIP_VALO_HIGHLIGHT} type="video/mp4" />
               Sorry, your browser doesn't support embedded videos
             </video>
             <div className="bg-primary-400 h-2 w-[20%] ml-auto"></div>
