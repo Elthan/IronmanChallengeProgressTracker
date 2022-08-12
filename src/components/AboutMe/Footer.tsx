@@ -15,8 +15,8 @@ function Footer() {
       {/* Decoration */}
       <div className="bg-zinc-700 py-4"></div>
 
-      <div className="bg-zinc-800 pt-16 pb-4 flex flex-col items-center">
-        <div className="text-zinc-300 flex justify-center space-x-6 text-3xl mb-10">
+      <div className="bg-zinc-800 pt-10 sm:pt-16 pb-4 flex flex-col items-center">
+        <div className="text-zinc-300 flex justify-center space-x-6 text-3xl mb-4 sm:mb-10">
           {socials.map(social => 
             <a
               className="hover:text-white"
