@@ -15,6 +15,8 @@ export interface GameInfo {
     rankGoalIcon: string;
     currentRankIndex: number;
     goalRankIndex: number;
+    nextRank?: string;
+    nextRankIcon?: string;
 }
 
 export interface GameInfoWrapper {
@@ -64,20 +66,18 @@ export default function ProgressInformation() {
                 <StreamStats />
             </div>
             
-            <div className="order-2 h-full flex flex-col justify-between text-start ">
-                <div className="order-2 h-fit py-4 lg:py-4">
-                    <div className="uppercase font-bold text-center">GOALS</div>
-                    {gameInfo.map((value, index) => (
-                        <GameGoals 
-                            index={index}
-                            game={value.name} 
-                            rank={value.info.rankGoal} 
-                            icon={value.info.rankGoalIcon} 
-                            progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
-                            reachedTop1Percent={value.info.reachedTop1Percent}
-                        />
-                    ))}
-                </div>
+            <div className="order-2 h-fit py-5">
+                <div className="uppercase font-bold text-center">GOALS</div>
+                {gameInfo.map((value, index) => (
+                    <GameGoals 
+                        index={index}
+                        game={value.name} 
+                        rank={value.info.rankGoal} 
+                        icon={value.info.rankGoalIcon} 
+                        progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
+                        reachedTop1Percent={value.info.reachedTop1Percent}
+                    />
+                ))}
             </div>
             
             <div className="order-3 h-full">
@@ -86,16 +86,21 @@ export default function ProgressInformation() {
                     ( <></> )
                     :
                     (
-                        <div className="h-full w-full flex flex-col lg:flex-row">
-                            {gameInfo.map((value, index) => (
-                                <GameProgress
-                                    index={index}
-                                    name={value.name}
-                                    icon={value.info.rankIconUrl}
-                                    points={value.info.pointsInRank}
-                                    rank={value.info.rank}
-                                    reachedTop1Percent={value.info.reachedTop1Percent} />
-                            ))}
+                        <div className="order-2 h-full flex flex-col py-5">                        
+                            <div className="uppercase font-bold text-center mb-5">NEXT RANKS</div>
+                            <div className="h-full w-full flex flex-col lg:flex-row justify-around">
+                                {gameInfo.map((value, index) => (
+                                    <GameProgress
+                                        index={index}
+                                        name={value.name}
+                                        points={value.info.pointsInRank}
+                                        curIcon={value.info.rankIconUrl}
+                                        curRank={value.info.rank}
+                                        nextIcon={value.info.nextRankIcon}
+                                        nextRank={value.info.nextRank}
+                                        reachedTop1Percent={value.info.reachedTop1Percent} />
+                                ))}
+                            </div>
                         </div>
                     )
                 }

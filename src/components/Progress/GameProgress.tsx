@@ -1,10 +1,12 @@
 import React from "react";
-import CircleCheck from "../svgComponents/CircleCheck";
+import { mapToValidPercent, mapProgressToIconStyle } from "../Utils/ProgressUtils";
 
 export interface IGameProgress {
     name: string;
-    icon?: string;
-    rank?: string;
+    curIcon?: string;
+    curRank?: string;
+    nextIcon?: string;
+    nextRank?: string;
     points?: number;
     reachedTop1Percent: boolean;
     index: number;
@@ -12,32 +14,25 @@ export interface IGameProgress {
 
 export default function GameProgress(progress: IGameProgress) {
     return (
-        <div key={progress.name} className="flex flex-row break-word flex-no-wrap lg:flex-col justify-between lg:justify-center items-center w-full lg:w-36 lg:pb-4 hover:bg-zinc-700 text-start lg:text-center">
-            <div className="order-2 uppercase text-left lg:text-center pl-2 w-3/12 lg:w-full lg:pl-0 text-sm">
-                {progress.name}
-            </div>
-            <div className="order-3 md:flex justify-end lg:justify-center pr-2 lg:pr-0 w-32 lg:w-full hidden">
-                <img className="h-12 w-12 lg:h-14 lg:w-14" src={progress.icon} alt="Game icon" />
-            </div>
-            <div className="order-4 w-3/12 text-right lg:text-center sm:pr-2 lg:pr-0 lg:w-full">
-                {progress.rank}
-            </div>
+        <div key={progress.name} className="flex flex-col items-center justify-between">
+            <article className="flex flex-col items-center">
+                <p className="text-sm uppercase">{progress.name}</p>
+                <img className={`h-10 w-10 ${mapProgressToIconStyle(progress.points || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
+                <p className="capitalize mb-2 -translate-y-1">{progress.nextRank}</p>
+            </article>
 
-            <div className="order-5 h-full flex justify-end lg:justify-center w-1/3 sm:w-full pt-2 pr-2 lg:pr-0">
-                <div className="lg:h-full w-full items-center lg:items-stretch lg:w-[4ch] text-center bg-primary-50 flex flex-row lg:flex-col justify-end rounded-sm overflow-hidden">
-                    <div style={{ height: `${progress.points}%` }}
-                        className="bg-primary-500 p-0.5 shadow-sm shadow-gray-500 text-zinc-100 pb-6 hidden lg:block"
-                    >
-                        <p className="text-sm">{progress.points}%</p>
-                    </div>
-
-                    <div style={{ width: `${progress.points}%`}}
-                        className="bg-primary-500 p-0.5 h-full flex items-center shadow-sm shadow-gray-500 text-zinc-100 pr-4 lg:hidden"
-                    >
-                        <p className="text-sm">{progress.points}%</p>
-                    </div>
+            <div className="flex flex-col-reverse h-full w-9  rounded-sm border-[1px] border-primary-600 overflow-hidden">
+                <div style={{ height: `${mapToValidPercent(progress.points || 0)}%` }}
+                    className="relative w-full bg-primary-600"
+                >
+                    <p className="text-sm text-center mt-1">{progress.points}%</p>
                 </div>
             </div>
+
+            <article className="flex flex-col items-center">
+                <img className="h-10 w-10 mt-2" src={progress.curIcon} alt={`${progress.curRank} icon`}/>
+                <p className="capitalize -translate-y-1">{progress.curRank}</p>
+            </article>
         </div>
     )
 }

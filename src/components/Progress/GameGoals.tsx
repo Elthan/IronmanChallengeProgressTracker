@@ -11,10 +11,10 @@ export interface IGameGoals {
 
 export default function GameGoals(goals: IGameGoals) {
     return (
-        <div key={goals.game} className={`flex flex-col w-full px-4 uppercase hover:bg-zinc-700`}>
-            <div className="flex justify-between items-center translate-y-2">
-                <h3 className="order-1 uppercase text-sm">{goals.game}</h3>
-                <h3 className="order-2 capitalize">{goals.rank}</h3>
+        <div key={goals.game} className={`flex flex-col w-full px-4 uppercase`}>
+            <div className="flex justify-between items-center">
+                <h3 className="order-1 uppercase text-sm translate-y-2">{goals.game}</h3>
+                <h3 className="order-2 capitalize translate-y-1">{goals.rank}</h3>
             </div>
 
             <div className="order-2 justify-end flex flex-col w-full">
