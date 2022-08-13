@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">
-            <div className={`order-3 lg:order-1 flex flex-col h-full bg-zinc-800 opacity-95 m-full lg:w-96 ${!showStream ? 'flex' : 'hidden'}`}>
+            <div className={`overflow-y-auto order-3 lg:order-1 flex flex-col h-full bg-zinc-800 opacity-95 m-full lg:w-96 ${!showStream ? 'flex' : 'hidden'}`}>
                 <ProgressInformation />
             </div>
 

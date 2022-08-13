@@ -21,7 +21,7 @@ export default function GameProgress(progress: IGameProgress) {
                 <p className="text-sm capitalize mb-2 -translate-y-1">{progress.nextRank}</p>
             </article>
 
-            <div className="flex flex-col-reverse h-full w-9  rounded-sm border-[1px] border-primary-600 overflow-hidden">
+            <div className="flex flex-col-reverse h-full w-9 min-h-[200px] rounded-sm border-[1px] border-primary-600 overflow-hidden">
                 <div style={{ height: `${mapToValidPercent(progress.points || 0)}%` }}
                     className="relative w-full bg-primary-600"
                 >
