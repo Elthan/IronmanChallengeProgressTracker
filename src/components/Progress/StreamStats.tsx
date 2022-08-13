@@ -45,7 +45,7 @@ export default function StreamStats() {
             <div className="order-2 pt-2">
                 <div className="font-bold">Time elapsed</div>
                 <div >
-                    <p className="text-sm">{`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} minutes ${uptime?.seconds || 0} seconds`}</p>
+                    <p className="text-sm">{`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} mins ${uptime?.seconds || 0} secs`}</p>
                 </div>
             </div>
         </div>
