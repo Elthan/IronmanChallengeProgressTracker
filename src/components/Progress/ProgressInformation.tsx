@@ -13,11 +13,17 @@ export interface GameInfo {
     reachedTop1Percent: boolean;
     rankGoal: string;
     rankGoalIcon: string;
+    currentRankIndex: number;
+    goalRankIndex: number;
 }
 
 export interface GameInfoWrapper {
     name: string;
     info: GameInfo;
+}
+
+function getPercent(part: number, whole: number) {
+    return Math.floor(part / whole * 100);
 }
 
 export default function ProgressInformation() {
@@ -31,7 +37,7 @@ export default function ProgressInformation() {
                 const { data } = await axios.get<any>(
                     BASEURL + "/all"
                 );
-                var results = [];
+                const results = [];
                 for (let item in data) {
                     results.push({
                         name: item,
@@ -53,25 +59,34 @@ export default function ProgressInformation() {
     }, []);
 
     return (
-        <div className="flex flex-col h-full w-full divide divide-y-[0.1rem] divide-zinc-500 justify-center text-zinc-100 text-center">
-            <div className="order-1 h-full flex flex-col divide-y-[0.1rem] divide-zinc-500 justify-between text-start">
-                <div className="order-1 h-32 p-4">
-                    <StreamStats />
-                </div>
-                <div className="order-2 h-fit pb-4 lg:pb-2 text-center">
-                    <div className="uppercase font-bold">GOALS</div>
+        <div className="flex flex-col h-full w-full justify-center text-zinc-100">
+            <div className="order-1 p-4 border-bottom">
+                <StreamStats />
+            </div>
+            
+            <div className="order-2 h-full flex flex-col justify-between text-start ">
+                <div className="order-2 h-fit py-4 lg:py-4">
+                    <div className="uppercase font-bold text-center">GOALS</div>
                     {gameInfo.map((value, index) => (
-                        <GameGoals index={index} game={value.name} rank={value.info.rankGoal} icon={value.info.rankGoalIcon} />
+                        <GameGoals 
+                            index={index}
+                            game={value.name} 
+                            rank={value.info.rankGoal} 
+                            icon={value.info.rankGoalIcon} 
+                            progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
+                            reachedTop1Percent={value.info.reachedTop1Percent}
+                        />
                     ))}
                 </div>
             </div>
-            <div className="order-2 h-full">
+            
+            <div className="order-3 h-full">
             {error ? <p>An error occured when fetching the data!</p> :
                     isLoading ?
                     ( <></> )
                     :
                     (
-                        <div className="flex flex-col lg:flex-row justify-center pb-2 lg:pb-0 pt-2 lg:pt-0 space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full w-full">
+                        <div className="h-full w-full flex flex-col lg:flex-row">
                             {gameInfo.map((value, index) => (
                                 <GameProgress
                                     index={index}
