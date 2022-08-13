@@ -16,14 +16,19 @@ body {
   /* @apply bg-primary-100; */
 }
 
-.border-bottom::before {
+.border-bottom {
+  position: relative;
+}
+
+.border-bottom::after {
   content: '';
   background: #3F3F46;
   position: absolute;
   bottom: 0;
-  left: 0;
-  height: 50%;
-  width: 1px;
+  left: 50%;
+  height: 1px;
+  width: 75%;
+  transform: translate(-50%, 0);
 }
 
 .animate-shine::before {
@@ -37,7 +42,7 @@ body {
   background: rgba(255, 255, 255, 0.3);
   transform: skewX(-30deg);
   transition: 0.3s;
-  animation: shine-animation 6s infinite;
+  animation: shine-animation 5s infinite;
 } 
 
 @keyframes shine-animation {

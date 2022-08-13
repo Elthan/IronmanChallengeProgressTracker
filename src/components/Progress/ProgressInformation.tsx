@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BASEURL } from "../../constants/API";
 import GameGoals from "./GameGoals";
-import GameProgress from "./GameProgress";
 import StreamStats from "./StreamStats";
+import NextRanks from "./NextRanks";
 
 export interface GameInfo {
     refreshedAt?: Date;
@@ -62,11 +62,11 @@ export default function ProgressInformation() {
 
     return (
         <div className="flex flex-col h-full w-full justify-center text-zinc-100">
-            <div className="order-1 p-4 border-bottom">
+            <div className="p-4 border-bottom">
                 <StreamStats />
             </div>
             
-            <div className="order-2 h-fit py-5">
+            <div className="h-fit py-5 border-bottom">
                 <div className="uppercase font-bold text-center">GOALS</div>
                 {gameInfo.map((value, index) => (
                     <GameGoals 
@@ -80,29 +80,10 @@ export default function ProgressInformation() {
                 ))}
             </div>
             
-            <div className="order-3 h-full">
+            <div className="h-full">
             {error ? <p>An error occured when fetching the data!</p> :
-                    isLoading ?
-                    ( <></> )
-                    :
-                    (
-                        <div className="order-2 h-full flex flex-col py-5">                        
-                            <div className="uppercase font-bold text-center mb-5">NEXT RANKS</div>
-                            <div className="h-full w-full flex flex-col lg:flex-row justify-around">
-                                {gameInfo.map((value, index) => (
-                                    <GameProgress
-                                        index={index}
-                                        name={value.name}
-                                        points={value.info.pointsInRank}
-                                        curIcon={value.info.rankIconUrl}
-                                        curRank={value.info.rank}
-                                        nextIcon={value.info.nextRankIcon}
-                                        nextRank={value.info.nextRank}
-                                        reachedTop1Percent={value.info.reachedTop1Percent} />
-                                ))}
-                            </div>
-                        </div>
-                    )
+                    isLoading ? ( <></> ) 
+                    : <NextRanks gameInfo={gameInfo}/>
                 }
             </div>
         </div>
