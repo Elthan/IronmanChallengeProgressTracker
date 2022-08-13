@@ -61,7 +61,7 @@ export default function ProgressInformation() {
     }, []);
 
     return (
-        <div className="sticky flex flex-col h-full w-full justify-center text-zinc-100">
+        <div className="flex flex-col h-full w-full justify-center text-zinc-100">
             <div className="p-4 border-bottom h-fit">
                 <StreamStats />
             </div>
