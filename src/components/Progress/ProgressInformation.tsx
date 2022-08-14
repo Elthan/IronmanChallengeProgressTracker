@@ -80,12 +80,12 @@ export default function ProgressInformation() {
     }, []);
 
     return (
-        <div className="flex flex-col h-full w-full justify-center text-zinc-100">
+        <div className="flex flex-col w-full justify-center text-zinc-100">
             <div className="p-4 border-bottom h-fit">
                 <StreamStats />
             </div>
             
-            <div className={`h-fit py-5 ${isLoading ? '' : 'border-bottom'}`}>
+            <div className={` py-5 ${isLoading ? '' : 'border-bottom'}`}>
                 <Disclosure defaultOpen>
                     {({ open }) => (
                         <>
@@ -116,7 +116,7 @@ export default function ProgressInformation() {
                 </Disclosure>
             </div>
             
-            <div className="h-full">
+            <div className="">
                 { renderNextRanks(error || false, isLoading, gameInfo) }
             </div>
         </div>
