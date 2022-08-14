@@ -10,7 +10,7 @@ export default function Home() {
                 {({ open }) => (
                     <>
                     {/* Collapsible Side bar */}
-                    <Disclosure.Panel className={`lg:overflow-y-auto order-3 lg:order-1 flex flex-col h-full lg:w-80 bg-[#2E3032]`}>
+                    <Disclosure.Panel className={`lg:overflow-y-auto order-3 lg:order-1 flex flex-col h-full lg:w-96 bg-[#2E3032]`}>
                         <ProgressInformation />
                     </Disclosure.Panel>
 

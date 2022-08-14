@@ -5,6 +5,8 @@ import GameGoals from "./GameGoals";
 import StreamStats from "./StreamStats";
 import NextRanks from "./NextRanks";
 import Spinner from "../Utils/Spinner";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from '@heroicons/react/solid'
 
 export interface GameInfo {
     refreshedAt?: Date;
