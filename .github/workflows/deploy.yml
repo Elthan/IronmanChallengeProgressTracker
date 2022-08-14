@@ -47,14 +47,14 @@ jobs:
       id-token: 'write'
 
     steps:
-    - uses: 'actions/checkout@v3'
-
     - name: 'Download Build Artifact'
       uses: 'actions/download-artifact@v3.0.0'
       with:
         name: 'build'
         path: 'build'
     
+    - run: 'mv build/app.yaml .'
+        
     - id: 'auth'
       name: 'Authenticate to GCloud'
       uses: 'google-github-actions/auth@v0'
