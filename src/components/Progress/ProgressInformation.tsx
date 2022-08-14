@@ -6,7 +6,7 @@ import StreamStats from "./StreamStats";
 import NextRanks from "./NextRanks";
 import Spinner from "../Utils/Spinner";
 import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from '@heroicons/react/solid'
+import { ChevronUpIcon } from '@heroicons/react/solid';
 
 export interface GameInfo {
     refreshedAt?: Date;
@@ -86,17 +86,34 @@ export default function ProgressInformation() {
             </div>
             
             <div className={`h-fit py-5 ${isLoading ? '' : 'border-bottom'}`}>
-                <div className="uppercase font-bold text-center">GOALS</div>
-                {gameInfo.map((value, index) => (
-                    <GameGoals 
-                        index={index}
-                        game={value.name} 
-                        rank={value.info.rankGoal} 
-                        icon={value.info.rankGoalIcon} 
-                        progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
-                        reachedTop1Percent={value.info.reachedTop1Percent}
-                    />
-                ))}
+                <Disclosure defaultOpen>
+                    {({ open }) => (
+                        <>
+                        <Disclosure.Button className="w-full px-4">
+                            <div className="relative flex justify-center items-center hover:bg-zinc-700 rounded-sm w-full">
+                                <h2 className="uppercase font-bold text-center">GOALS</h2>
+                                <ChevronUpIcon
+                                    className={`opacity-20 absolute right-0 ${
+                                        open ? 'rotate-180 transform' : ''
+                                    } h-5 w-5`}
+                                />
+                            </div>
+                        </Disclosure.Button>
+                        <Disclosure.Panel>
+                            {gameInfo.map((value, index) => (
+                                <GameGoals 
+                                index={index}
+                                game={value.name} 
+                                rank={value.info.rankGoal} 
+                                icon={value.info.rankGoalIcon} 
+                                progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
+                                reachedTop1Percent={value.info.reachedTop1Percent}
+                                />
+                                ))}
+                        </Disclosure.Panel>
+                        </>
+                    )}
+                </Disclosure>
             </div>
             
             <div className="h-full">
