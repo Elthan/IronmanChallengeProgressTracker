@@ -14,14 +14,14 @@ export interface IGameProgress {
 
 export default function GameProgress(progress: IGameProgress) {
     return (
-        <div key={progress.name} className="flex flex-row justify-end lg:flex-col items-center lg:justify-between">
+        <div key={progress.name} className="flex flex-row justify-end lg:flex-col items-center ">
             <article className="flex flex-col items-center">
                 <p className="text-sm uppercase">{progress.name}</p>
                 <img className={`hover:animate-pulse h-10 w-10 ${mapProgressToIconStyle(progress.points || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
                 <p className="text-sm capitalize mb-2 -translate-y-1 w-max">{progress.nextRank}</p>
             </article>
 
-            <div className="flex flex-row-reverse lg:flex-col-reverse min-w-[200px] h-6 w-2/4 lg:h-full lg:w-9 lg:min-w-fit lg:min-h-[200px] rounded-sm border-[1px] border-primary-600 overflow-hidden hover:border-primary-50">
+            <div className="flex flex-row-reverse lg:flex-col-reverse min-w-[200px] h-6 w-2/4 lg:h-full lg:max-h-[300px] lg:w-9 lg:min-w-fit lg:min-h-[200px] rounded-sm border-[1px] border-primary-600 overflow-hidden hover:border-primary-50">
                 <div style={{ height: `${mapToValidPercent(progress.points || 0)}%` }}
                     className="hidden lg:block relative w-full bg-primary-600"
                 >
