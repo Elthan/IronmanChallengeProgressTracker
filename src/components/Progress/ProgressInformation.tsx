@@ -99,7 +99,7 @@ export default function ProgressInformation() {
                                 />
                             </div>
                         </Disclosure.Button>
-                        <Disclosure.Panel>
+                        <Disclosure.Panel className="overflow-hidden">
                             {gameInfo.map((value, index) => (
                                 <GameGoals 
                                 index={index}
