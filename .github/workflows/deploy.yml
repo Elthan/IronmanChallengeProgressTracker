@@ -48,7 +48,7 @@ jobs:
 
     steps:
     - uses: 'actions/checkout@v3'
-    - run: 'find **/* -type f,d -not \(-name "app.yml" -or -name "package-lock.json" \) -delete'
+    - run: 'find **/* -type f,d -not \( -name "app.yml" -or -name "package-lock.json" \) -delete'
 
     - name: 'Download Build Artifact'
       uses: 'actions/download-artifact@v3.0.0'
