@@ -27,7 +27,7 @@ export default function Home() {
                     <div className="order-1 lg:order-3 h-full w-full lg:h-[calc(100vh-4rem)]">
                         <Disclosure.Button as="button" className="hidden lg:block">
                             <div className={`fixed inset-y-1/2 pl-2 `} >
-                                <div className="hover:bg-primary-400 hover:opacity-90 p-[2px] rounded-md">
+                                <div className="hover:bg-primary-600 hover:opacity-90 p-[2px] rounded-md">
                                     <Triangle width="24" height="24" cName={`fill-zinc-100 ${ open ? '-rotate-90' : 'rotate-90'} transform lg:block`} />
                                 </div>
                             </div>
