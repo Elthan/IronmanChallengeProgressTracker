@@ -4,6 +4,7 @@ import { BASEURL } from "../../constants/API";
 import GameGoals from "./GameGoals";
 import StreamStats from "./StreamStats";
 import NextRanks from "./NextRanks";
+import Spinner from "../Utils/Spinner";
 
 export interface GameInfo {
     refreshedAt?: Date;
@@ -26,6 +27,22 @@ export interface GameInfoWrapper {
 
 function getPercent(part: number, whole: number) {
     return Math.floor(part / whole * 100);
+}
+
+function renderNextRanks(error: boolean, isLoading: boolean, gameInfo: GameInfoWrapper[]) {
+    if (error) {
+        return (
+            <div className="w-full h-full grid place-content-center">
+                <p>An error occured when fetching the data!</p>
+            </div>
+        );
+    } else if (isLoading) {
+        return (
+            <div className="w-full h-full grid place-content-center"><Spinner /></div>
+        );
+    } else {
+        return <NextRanks gameInfo={gameInfo}/>;
+    }
 }
 
 export default function ProgressInformation() {
@@ -66,7 +83,7 @@ export default function ProgressInformation() {
                 <StreamStats />
             </div>
             
-            <div className="h-fit py-5 border-bottom">
+            <div className={`h-fit py-5 ${isLoading ? '' : 'border-bottom'}`}>
                 <div className="uppercase font-bold text-center">GOALS</div>
                 {gameInfo.map((value, index) => (
                     <GameGoals 
@@ -81,10 +98,7 @@ export default function ProgressInformation() {
             </div>
             
             <div className="h-full">
-            {error ? <p>An error occured when fetching the data!</p> :
-                    isLoading ? ( <></> ) 
-                    : <NextRanks gameInfo={gameInfo}/>
-                }
+                { renderNextRanks(error || false, isLoading, gameInfo) }
             </div>
         </div>
     )
