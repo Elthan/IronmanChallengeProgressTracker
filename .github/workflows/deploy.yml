@@ -49,7 +49,7 @@ jobs:
     steps:
     - uses: 'actions/checkout@v3'
     - run: 'find **/* -type f,d -not \( -name "app.yml" -or -name "package-lock.json" \) -delete'
-    - run: 'ls -ahl **/*'
+    - run: 'ls -ahl .'
 
     - name: 'Download Build Artifact'
       uses: 'actions/download-artifact@v3.0.0'
@@ -57,7 +57,7 @@ jobs:
         name: 'build'
         path: 'build'
         
-    - run: 'ls -ahl **/*'
+    - run: 'ls -ahl .'
     
     - id: 'auth'
       name: 'Authenticate to GCloud'
