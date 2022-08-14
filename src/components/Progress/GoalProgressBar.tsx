@@ -9,7 +9,7 @@ export interface IGoalProgress {
 
 function GoalProgressBar({ cName, progress, isTop1 }: IGoalProgress) {
   return (
-    <div className={`border-[1px] border-primary-500 rounded-sm ${cName}`}>
+    <div className={`border-[1px] border-primary-500 rounded-sm ${cName} group-hover:border-primary-50`}>
         <div 
             style={{ width: `${mapToValidPercent(progress)}%`}}
             className={`bg-primary-500 h-full relative overflow-hidden ${getProgressGoalStyle(isTop1)}`}
