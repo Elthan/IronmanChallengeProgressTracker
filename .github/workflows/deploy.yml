@@ -67,4 +67,3 @@ jobs:
       with:
         deliverables: 'app.yaml'
         promote: true
-        version: 'v1'
