@@ -72,7 +72,7 @@ export default function ProgressInformation() {
                     :
                     (
                         <div className="flex flex-col h-full w-full">
-                            <div className="order-1 w-full h-fit font-bold">GAME PROGRESS</div>
+                            <div className="order-1 w-full h-fit font-bold">CURRENT RANK STATS</div>
                             <div className="order-2 flex flex-col lg:flex-row justify-center pb-2 lg:pb-0 pt-2 lg:pt-0 space-y-2 lg:space-y-0 space-x-0 lg:space-x-6 h-full w-full">
                                 {gameInfo.map((value, index) => (
                                     <GameProgress
