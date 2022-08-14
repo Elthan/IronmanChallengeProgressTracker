@@ -12,6 +12,7 @@ export interface GameInfo {
     refreshedAt?: Date;
     rank: string;
     pointsInRank: number;
+    pointsDisplayValue: string;
     rankIconUrl?: string;
     reachedTop1Percent: boolean;
     rankGoal: string;
@@ -66,6 +67,7 @@ export default function ProgressInformation() {
                     });
                 }
                 setGameInfo(results.sort());
+                console.log(results);
                 setError(null);
             } catch (err: any) {
                 setError(err.message);

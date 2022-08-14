@@ -28,7 +28,8 @@ function NextRanks({ gameInfo }: GameInfoArray) {
               <GameProgress
                   index={index}
                   name={value.name}
-                  points={value.info.pointsInRank}
+                  percent={value.info.pointsInRank}
+                  points={value.info.pointsDisplayValue}
                   curIcon={value.info.rankIconUrl}
                   curRank={value.info.rank}
                   nextIcon={value.info.nextRankIcon}
