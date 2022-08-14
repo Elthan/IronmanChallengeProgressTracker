@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { START_TIME_UTC } from "../../constants/Challenge";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from '@heroicons/react/solid';
 
 interface Uptime {
     days: number;
@@ -39,15 +41,26 @@ export default function StreamStats() {
 
     return (
         <div className="flex flex-col">
-            <div className="order-1 uppercase font-bold text-center">
-                STATS
-            </div>
-            <div className="order-2 pt-2">
-                <div className="font-bold">Time elapsed</div>
-                <div >
-                    {`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} minutes ${uptime?.seconds || 0} seconds`}
-                </div>
-            </div>
+            <Disclosure defaultOpen>
+                {({ open }) => (  
+                    <>
+                    <Disclosure.Button className="relative flex justify-center items-center hover:bg-zinc-700 rounded-sm">
+                        <h2 className="uppercase font-bold text-center">STATS</h2>
+                        <ChevronUpIcon
+                            className={`opacity-20 absolute right-0 ${
+                                open ? 'rotate-180 transform' : ''
+                            } h-5 w-5`}
+                        />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="order-2 pt-2">
+                        <h3 className="font-bold">Time elapsed</h3>
+                        <div >
+                            <p className="text-sm">{`${uptime?.days || 0} days ${uptime?.hours || 0} hours ${uptime?.minutes || 0} mins ${uptime?.seconds || 0} secs`}</p>
+                        </div>
+                    </Disclosure.Panel>
+                    </>                  
+                )}
+            </Disclosure>
         </div>
     )
 }
