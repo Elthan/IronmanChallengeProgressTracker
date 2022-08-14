@@ -47,18 +47,14 @@ jobs:
       id-token: 'write'
 
     steps:
-    - uses: 'actions/checkout@v3'
-    - run: 'find **/* -type f,d -not \( -name "app.yml" -or -name "package-lock.json" \) -delete'
-    - run: 'ls -ahl .'
-
     - name: 'Download Build Artifact'
       uses: 'actions/download-artifact@v3.0.0'
       with:
         name: 'build'
         path: 'build'
-        
-    - run: 'ls -ahl .'
     
+    - run: 'mv build/app.yaml .'
+        
     - id: 'auth'
       name: 'Authenticate to GCloud'
       uses: 'google-github-actions/auth@v0'
