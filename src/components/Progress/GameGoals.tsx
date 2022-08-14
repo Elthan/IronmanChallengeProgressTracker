@@ -21,7 +21,7 @@ export default function GameGoals(goals: IGameGoals) {
                 <div className="flex items-center group">
                     <GoalProgressBar cName="w-3/5 h-5" isTop1={goals.reachedTop1Percent} progress={goals.progress} />
                     { goals.reachedTop1Percent && <CircleCheck cName="mx-2" width="24" height="24" fill="#3DA281" /> }
-                    <img src={goals.icon} alt="Rank Goal Icon" className={`ml-auto h-9 w-9 ${goals.reachedTop1Percent ? '' : 'grayscale opacity-40'}`} />
+                    <img src={goals.icon} alt="Rank Goal Icon" className={`hover:animate-pulse ml-auto h-9 w-9 ${goals.reachedTop1Percent ? '' : 'grayscale opacity-40'}`} />
                 </div>
             </div>
         </div>

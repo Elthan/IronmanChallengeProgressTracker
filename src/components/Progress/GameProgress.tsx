@@ -17,7 +17,7 @@ export default function GameProgress(progress: IGameProgress) {
         <div key={progress.name} className="flex flex-row justify-end lg:flex-col items-center lg:justify-between group">
             <article className="flex flex-col items-center">
                 <p className="text-sm uppercase">{progress.name}</p>
-                <img className={`h-10 w-10 ${mapProgressToIconStyle(progress.points || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
+                <img className={`hover:animate-pulse h-10 w-10 ${mapProgressToIconStyle(progress.points || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
                 <p className="text-sm capitalize mb-2 -translate-y-1 w-max">{progress.nextRank}</p>
             </article>
 
@@ -36,7 +36,7 @@ export default function GameProgress(progress: IGameProgress) {
             </div>
 
             <article className="flex flex-col items-center mx-3 lg:mx-0">
-                <img className="h-10 w-10 mt-2" src={progress.curIcon} alt={`${progress.curRank} icon`}/>
+                <img className="hover:animate-pulse h-10 w-10 mt-2" src={progress.curIcon} alt={`${progress.curRank} icon`}/>
                 <p className="text-sm capitalize -translate-y-1 w-max">{progress.curRank}</p>
             </article>
         </div>
