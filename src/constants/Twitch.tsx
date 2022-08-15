@@ -4,3 +4,4 @@ export const TWITCHICON = "https://static-cdn.jtvnw.net/jtv_user_pictures/7bc3f9
 export const TWITCHCLIP_VALO_CALM = "https://mihubot.xyz/ironman/videos/valo_clip_calm.mp4";
 export const TWITCHCLIP_VALO_HIGHLIGHT = "https://mihubot.xyz/ironman/videos/valo_deagle_highlight.mp4";
 export const TWITCHCLIP_TFT1 = "https://clips-media-assets2.twitch.tv/8k_PthuzDAkWfJvcDIJKSw/AT-cm%7C8k_PthuzDAkWfJvcDIJKSw.mp4";
+export const TWITCH_EMBED_URL = "https://embed.twitch.tv/embed/v1.js";

@@ -46,6 +46,7 @@ export default function StreamStats() {
                     <>
                     <Disclosure.Button className="relative flex justify-center items-center hover:bg-zinc-700 rounded-sm">
                         <h2 className="uppercase font-bold text-center">STATS</h2>
+                        <span className="sr-only">Toggle shown or hide time elapsed</span>
                         <ChevronUpIcon
                             className={`opacity-20 absolute right-0 ${
                                 open ? 'rotate-180 transform' : ''

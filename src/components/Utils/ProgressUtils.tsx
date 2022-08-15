@@ -19,3 +19,7 @@ export function mapProgressToIconStyle(progress: number) {
   else
     return 'grayscale opacity-40';
 }
+
+export function getPercent(part: number, whole: number) {
+  return Math.floor(part / whole * 100);
+}
