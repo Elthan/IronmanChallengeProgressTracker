@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BASEURL } from "../../constants/API";
-import GameGoals from "./GameGoals";
 import StreamStats from "./StreamStats";
 import NextRanks from "./NextRanks";
 import Spinner from "../Utils/Spinner";
+import Goals from "./Goals";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from '@heroicons/react/solid';
 
@@ -28,9 +28,6 @@ export interface GameInfoWrapper {
     info: GameInfo;
 }
 
-function getPercent(part: number, whole: number) {
-    return Math.floor(part / whole * 100);
-}
 
 function renderNextRanks(error: boolean, isLoading: boolean, gameInfo: GameInfoWrapper[]) {
     if (error) {
@@ -67,7 +64,6 @@ export default function ProgressInformation() {
                     });
                 }
                 setGameInfo(results.sort());
-                console.log(results);
                 setError(null);
             } catch (err: any) {
                 setError(err.message);
@@ -83,44 +79,37 @@ export default function ProgressInformation() {
 
     return (
         <div className="flex flex-col w-full justify-center text-zinc-100">
-            <div className="p-4 border-bottom h-fit">
-                <StreamStats />
-            </div>
-            
-            <div className={` py-5 ${isLoading ? '' : 'border-bottom'}`}>
-                <Disclosure defaultOpen>
-                    {({ open }) => (
-                        <>
-                        <Disclosure.Button className="w-full px-4">
-                            <div className="relative flex justify-center items-center hover:bg-zinc-700 rounded-sm w-full">
-                                <h2 className="uppercase font-bold text-center">GOALS</h2>
-                                <ChevronUpIcon
-                                    className={`opacity-20 absolute right-0 ${
+            <Disclosure defaultOpen>
+                {({ open }) => (
+                    <>          
+                        <Disclosure.Button className="py-2 lg:py-4 border-b-[1px] border-zinc-700 hover:bg-zinc-800">
+                            <div className="relative mx-4">
+                                <span className="sr-only">Toggle shown or hide progression stats</span>
+                                <ChevronUpIcon 
+                                    className={`opacity-20 absolute left-0 ${
                                         open ? 'rotate-180 transform' : ''
                                     } h-5 w-5`}
                                 />
+                                <p className="text-center text-sm font-bold uppercase">PROGRESSION</p>
                             </div>
                         </Disclosure.Button>
-                        <Disclosure.Panel className="overflow-hidden">
-                            {gameInfo.map((value, index) => (
-                                <GameGoals 
-                                index={index}
-                                game={value.name} 
-                                rank={value.info.rankGoal} 
-                                icon={value.info.rankGoalIcon} 
-                                progress={getPercent(value.info.currentRankIndex + (value.info.pointsInRank / 100), value.info.goalRankIndex)}
-                                reachedTop1Percent={value.info.reachedTop1Percent}
-                                />
-                                ))}
+
+                        <Disclosure.Panel>
+                            <div className="p-4 border-bottom h-fit">
+                                <StreamStats />
+                            </div>
+                            
+                            <div className={` py-5 ${isLoading ? '' : 'border-bottom'}`}>
+                                <Goals gameInfo={gameInfo}/>
+                            </div>
+                            
+                            <div className="">
+                                { renderNextRanks(error || false, isLoading, gameInfo) }
+                            </div>
                         </Disclosure.Panel>
-                        </>
-                    )}
-                </Disclosure>
-            </div>
-            
-            <div className="">
-                { renderNextRanks(error || false, isLoading, gameInfo) }
-            </div>
+                    </>
+                )}
+            </Disclosure>
         </div>
     )
 }
