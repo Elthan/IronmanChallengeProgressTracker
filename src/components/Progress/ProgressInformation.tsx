@@ -82,7 +82,7 @@ export default function ProgressInformation() {
             <Disclosure defaultOpen>
                 {({ open }) => (
                     <>          
-                        <Disclosure.Button className="py-4 border-b-[1px] border-zinc-700 hover:bg-zinc-800">
+                        <Disclosure.Button className="py-2 lg:py-4 border-b-[1px] border-zinc-700 hover:bg-zinc-800">
                             <div className="relative mx-4">
                                 <span className="sr-only">Toggle shown or hide progression stats</span>
                                 <ChevronUpIcon 
