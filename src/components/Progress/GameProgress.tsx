@@ -18,7 +18,7 @@ export default function GameProgress(progress: IGameProgress) {
         <div key={progress.name} className="flex flex-row justify-center lg:justify-end lg:flex-col items-center">
             <article className="flex flex-col items-center">
                 <p className="text-sm uppercase">{progress.name}</p>
-                <img className={`mx-8 lg:mx-0 hover:animate-pulse h-10 w-10 ${mapProgressToIconStyle(progress.percent || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
+                <img className={`mx-12 lg:mx-0 hover:animate-pulse h-10 w-10 ${mapProgressToIconStyle(progress.percent || 0)}`} src={progress.nextIcon} alt={`${progress.nextRank} icon`}/>
                 <p className="text-sm capitalize mb-2 -translate-y-1 w-max">{progress.nextRank}</p>
             </article>
 
@@ -38,7 +38,7 @@ export default function GameProgress(progress: IGameProgress) {
 
             <article className="relative flex flex-col items-center mx-0">
                 <p className="absolute -translate-y-2 lg:translate-y-0 lg:static text-xs lg:mt-1">{progress.points}</p>
-                <img className="mx-8 lg:mx-0 hover:animate-pulse h-10 w-10 mt-2" src={progress.curIcon} alt={`${progress.curRank} icon`}/>
+                <img className="mx-12 lg:mx-0 hover:animate-pulse h-10 w-10 mt-2" src={progress.curIcon} alt={`${progress.curRank} icon`}/>
                 <p className="text-sm capitalize -translate-y-1 w-max">{progress.curRank}</p>
             </article>
         </div>
