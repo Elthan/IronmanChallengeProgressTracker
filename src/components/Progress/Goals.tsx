@@ -29,7 +29,7 @@ function Goals(props: GameInfoArray) {
               game={value.name} 
               rank={value.info.rankGoal} 
               icon={value.info.rankGoalIcon} 
-              progress={getPercent(value.info.currentRankIndex, value.info.goalRankIndex)}
+              progress={getPercent(value.info.currentRankIndex + (value.info.pointsInRank / 100), value.info.goalRankIndex)}
               reachedTop1Percent={value.info.reachedTop1Percent}
               />
             ))}
