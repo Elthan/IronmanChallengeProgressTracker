@@ -59,7 +59,7 @@ jobs:
     
     - name: Fix output
       id: vars
-      run: echo ::set-output name=tag::${steps.temp.outputs.tag//[\.]/-}
+      run: echo ::set-output name=tag::${steps.temp.outputs.tag//\./-}
     
     - name: Check output
       env:
