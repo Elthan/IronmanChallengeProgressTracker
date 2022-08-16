@@ -76,3 +76,4 @@ jobs:
       with:
         deliverables: 'app.yaml'
         promote: true
+        version: ${{ steps.vars.outputs.tag }}
