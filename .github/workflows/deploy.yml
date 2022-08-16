@@ -54,8 +54,12 @@ jobs:
     - run: 'mv build/app.yaml .'
     
     - name: Set output
+      id: temp
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*//}
+    
+    - name: Fix output
       id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*///[\.]/-}
+      run: echo ::set-output name=tag::${steps.temp.outputs.tag//[\.]/-}
     
     - name: Check output
       env:
