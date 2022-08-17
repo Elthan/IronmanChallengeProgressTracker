@@ -8,13 +8,13 @@ export default function Home() {
     const [hoverStream, setHoverStream] = useState(true);
     
     return (
-        <main className="flex flex-col lg:flex-row h-full lg:h-[calc(100vh-4rem)]">
-            <Disclosure defaultOpen as="section" className="h-full flex-2 lg:flex-1 flex flex-col lg:flex-row ">
+        <main className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">
+            <Disclosure defaultOpen as="section" className="h-full lg:flex-1 flex flex-col lg:flex-row ">
                 {({ open }: {open: boolean}) => (
                     <>
                     {/* Collapsible Side bar */}
-                    <Disclosure.Panel unmount={false} as="div" className="order-2 lg:order-1 w-full lg:w-auto lg:h-full">
-                        <div className="relative h-full">
+                    <Disclosure.Panel unmount={false} as="div" className="order-2 lg:order-1 w-full lg:w-auto lg:h-full overflow-y-auto lg:overflow-y-visible">
+                        <div className="relative h-min lg:h-full">
                             <ProgressInformation />
 
                             {/* Toggle Button when side bar is opened */}
@@ -28,15 +28,15 @@ export default function Home() {
                     </Disclosure.Panel>
 
                     {/* <TwitchEmbed /> */}
-                    <article className="order-1 lg:order-2 relative w-full h-full">
+                    <article className="flex-1 order-1 lg:order-2 relative w-full h-full">
                         <iframe title="twitch-stream" 
                             src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=false`}
-                            className="w-full h-full"
+                            className="w-full h-full aspect-video lg:aspect-auto"
                             allowFullScreen>
                         </iframe>
 
                         {/* Toggle Button when side bar is closed */}
-                        <Disclosure.Button className="absolute top-1/2 z-10 pl-2 order-2 hidden lg:block">
+                        <Disclosure.Button className="absolute bottom-1/2 z-10 pl-2 order-2 hidden lg:block">
                             {/* <div className={``} > */}
                                 <div className="hover:bg-[rgba(82,82,91,0.5)] p-[5px] rounded-md">
                                     <span className="sr-only">Expand progression side bar</span>
@@ -53,7 +53,7 @@ export default function Home() {
 
 
             {/* Twitch chat */}
-            <Disclosure defaultOpen as="section" className="relative h-full">
+            <Disclosure defaultOpen as="section" className="hidden lg:block relative h-full">
                 {({ open }: {open: boolean}) => (
                     <>
                     <Disclosure.Panel unmount={false} as="div" className="h-full">
@@ -63,8 +63,8 @@ export default function Home() {
                                     className="w-full lg:w-[340px] h-full">
                             </iframe>
                         </div>
-
                     </Disclosure.Panel>
+                    
                     {/* Toggle Button when chat is opened */}
                     <Disclosure.Button className={`hidden lg:block absolute ${open ? 'top-3 right-[300px]' : 'bottom-1/2 right-4 scale-x-[-1]'}`}>
                         <div className={`hover:bg-[rgba(82,82,91,0.9)] p-[5px] rounded-md`}>
