@@ -12,10 +12,35 @@
   }
 }
 
-body {
-  @apply bg-zinc-700;
+html {
+  height: 100%;
+  width: 100%
 }
 
+body {
+  @apply bg-zinc-800;
+}
+
+/* Scrollbar style */
+.styled-scrollbars {
+  scrollbar-width: auto;
+	scrollbar-color: #69696B #0d0f13;
+}
+
+.styled-scrollbars::-webkit-scrollbar { /* the background bar */
+  width: 8px;
+}
+
+.styled-scrollbars::-webkit-scrollbar-track-piece { /* the background gutter */
+  background-color: #18181B;
+}
+
+.styled-scrollbars::-webkit-scrollbar-thumb { /* the dragable */
+  background-color: #69696B;
+  border-radius: 8px;
+}
+
+/* Partial Bottom Border */
 .border-bottom {
   position: relative;
 }
@@ -31,6 +56,7 @@ body {
   transform: translate(-50%, 0);
 }
 
+/* Shine animation */
 .animate-shine::before {
   content: '';
   position: absolute;
@@ -50,6 +76,7 @@ body {
   20%, 100% { left: 120%; background: rgba(255, 255, 255, 0.2); }
 }
 
+/* Gradient Background Animation */
 .bg-gradient {
   /* background-image: linear-gradient(45deg, #3da281, #4b69b0, #924bb0, #4b69b0, #3da281); */
   background-image: linear-gradient(45deg, #3da281, #4b69b0, #3da281);
@@ -60,6 +87,12 @@ body {
   animation: bg-gradient-animation 3s infinite alternate;
 }
 
+@keyframes bg-gradient-animation {
+  0% {background-position: left;}
+  100% {background-position: right;}
+}
+
+/* Image Carousel  */
 .slick-slide {
   height: 400px;
 }
@@ -68,11 +101,7 @@ body {
   height: 400px;
 }
 
-@keyframes bg-gradient-animation {
-  0% {background-position: left;}
-  100% {background-position: right;}
-}
-
+/* Text outline with no fill */
 .text-outline {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1.5px;
@@ -88,6 +117,7 @@ body {
   animation: mover 1.5s infinite  alternate;
 }
 
+/* Floating up and down Animation */
 @-webkit-keyframes mover {
   0% { transform: translateY(15px); }
   100% { transform: translateY(-15px); }

@@ -78,7 +78,7 @@ export default function ProgressInformation() {
     }, []);
 
     return (
-        <div className="flex flex-col w-full justify-center text-zinc-100">
+        <div className="flex flex-col lg:w-72 lg:h-full text-zinc-100 bg-[#18181B] ">
             <Disclosure defaultOpen>
                 {({ open }) => (
                     <>          
@@ -94,8 +94,8 @@ export default function ProgressInformation() {
                             </div>
                         </Disclosure.Button>
 
-                        <Disclosure.Panel>
-                            <div className="p-4 border-bottom h-fit">
+                        <Disclosure.Panel as="div" className="overflow-y-auto styled-scrollbars">
+                            <div className="p-4 border-bottom">
                                 <StreamStats />
                             </div>
                             

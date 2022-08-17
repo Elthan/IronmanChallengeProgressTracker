@@ -7,7 +7,7 @@ import GameInfoArray from "./GameInfoArray";
 
 function NextRanks({ gameInfo }: GameInfoArray) {
   return ( 
-    <Disclosure as="div" defaultOpen className="order-2 h-full flex flex-col py-5 overflow-hidden">
+    <Disclosure as="div" defaultOpen className="order-2  flex flex-col py-5 overflow-hidden">
       {({ open }) => (
         <>
         <Disclosure.Button className="w-full px-4 mb-4 lg:mb-5">
@@ -21,7 +21,7 @@ function NextRanks({ gameInfo }: GameInfoArray) {
             />
           </div>
         </Disclosure.Button>           
-        <Disclosure.Panel className="h-full w-full flex flex-col lg:flex-row justify-around overflow-hidden">
+        <Disclosure.Panel className=" w-full flex flex-col lg:flex-row justify-around overflow-hidden">
           {gameInfo.map((value, index) => (
               <GameProgress
                   index={index}
