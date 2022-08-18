@@ -1,13 +1,16 @@
 import { Disclosure } from "@headlessui/react";
 import React, { useState } from "react";
 import ProgressInformation from "../components/Progress/ProgressInformation";
-import { LogoutIcon } from '@heroicons/react/solid';
+import { LogoutIcon, UploadIcon } from '@heroicons/react/solid';
 import { useMediaQuery } from "react-responsive";
 
 
 export default function Home() {
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' }
+                                            , undefined
+                                            , (matches: any) => setShowStream(!matches));
     const [hoverStream, setHoverStream] = useState(true);
+    const [showStream, setShowStream] = useState(!isTabletOrMobile);
 
     return (
         <main 
@@ -29,28 +32,39 @@ export default function Home() {
                                     <span className="sr-only">Collapse progression side bar</span>
                                     <LogoutIcon width="20" height="20" className={`fill-zinc-100 scale-x-[-1]`} />
                                 </div>
-                             </Disclosure.Button>
+                            </Disclosure.Button>
+
+                            {/* Toggle Button to show/hide Stream */}
+                            <button onClick={() => setShowStream(!showStream)} className="cursor-pointer z-10 absolute top-2 right-3">
+                                <div className="block lg:hidden hover:bg-[rgba(82,82,91,0.9)] p-[5px] rounded-md" >
+                                    <span className="sr-only">Toggle show/hide stream</span>
+                                    <UploadIcon width="20" height="20" className={`fill-zinc-100 ${!showStream && 'rotate-180'}`} />
+                                </div>
+                            </button>
                         </div>
                     </Disclosure.Panel>
 
                     {/* <TwitchEmbed /> */}
-                    <article className="flex-1 order-1 lg:order-2 relative w-full h-full">
-                        <iframe title="twitch-stream" 
-                            src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=false`}
-                            className="w-full h-full aspect-video lg:aspect-auto"
-                            allowFullScreen>
-                        </iframe>
+                    {
+                        showStream &&
+                        <article className="flex-1 order-1 lg:order-2 relative w-full h-full">
 
-                        {/* Toggle Button when side bar is closed */}
-                        <Disclosure.Button className="absolute bottom-1/2 z-10 pl-2 order-2 hidden lg:block">
-                            {/* <div className={``} > */}
+                                <iframe title="twitch-stream" 
+                                    src={`https://player.twitch.tv/?channel=edisonparklive&parent=${window.location.hostname}&muted=true&autoplay=false`}
+                                    className="w-full h-full aspect-video lg:aspect-auto"
+                                    allowFullScreen>
+                                </iframe>
+
+                            {/* Toggle Button when side bar is closed */}
+                            <Disclosure.Button className="absolute bottom-1/2 z-10 pl-2 order-2 hidden lg:block">
                                 <div className="hover:bg-[rgba(82,82,91,0.5)] p-[5px] rounded-md">
                                     <span className="sr-only">Expand progression side bar</span>
                                     <LogoutIcon width="20" height="20" className={`fill-zinc-100 ${ open ? 'hidden' : !hoverStream? 'hidden' : 'block' } transform`} />
                                 </div>
-                            {/* </div> */}
-                        </Disclosure.Button>
-                    </article>
+                            </Disclosure.Button>
+                        </article>
+                    }
+
                     </>
                 )}
             </Disclosure>
