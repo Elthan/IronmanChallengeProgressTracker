@@ -55,14 +55,14 @@ jobs:
     
     - name: Set output
       id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*//}
+      run: echo ::set-output name=vname::${GITHUB_REF_NAME}
     
     - name: Check output
       env:
-        RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        RELEASE_VERSION: ${{ steps.vars.outputs.vname }}
       run: |
         echo $RELEASE_VERSION
-        echo ${{ steps.vars.outputs.tag }}
+        echo ${{ steps.vars.outputs.vname }}
         
     - id: 'auth'
       name: 'Authenticate to GCloud'
