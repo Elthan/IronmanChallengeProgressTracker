@@ -55,14 +55,13 @@ jobs:
     
     - name: Set output
       id: vars
-      run: echo "VNAME=${GITHUB_REF_NAME//.}" >> $GITHUB_PATH
+      run: echo ::set-output name=vname::${GITHUB_REF_NAME//.}
     
     - name: Check output
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.vname }}
       run: |
-        echo $VNAME
-        echo ${{ steps.vars.outputs.vname }}
+        echo $RELEASE_VERSION
         
     - id: 'auth'
       name: 'Authenticate to GCloud'
@@ -73,6 +72,9 @@ jobs:
 
     - name: 'Deploy to App Engine'
       uses: 'google-github-actions/deploy-appengine@v0'
+      env:
+        RELEASE_VERSION: ${{ steps.vars.outputs.vname }}
       with:
         deliverables: 'app.yaml'
         promote: true
+        version: $RELEASE_VERSION
