@@ -55,14 +55,15 @@ jobs:
     
     - name: Set output
       id: vars
-      run: echo "VNAME=${GITHUB_REF_NAME//.}" >> $GITHUB_PATH
+      run: echo "VNAME=${GITHUB_REF_NAME}" >> $GITHUB_PATH
     
     - name: Check output
       env:
         RELEASE_VERSION: ${{ steps.vars.outputs.vname }}
       run: |
+        echo $RELEASE_VERSION
         echo $VNAME
-        echo ${{ steps.vars.outputs.vname }}
+        echo $GITHUB_PATH
         
     - id: 'auth'
       name: 'Authenticate to GCloud'
