@@ -55,7 +55,7 @@ jobs:
     
     - name: Set output
       id: vars
-      run: echo ::set-output name=vname::${GITHUB_REF_NAME}
+      run: echo "VNAME=${GITHUB_REF_NAME//.}" >> $GITHUB_PATH
     
     - name: Check output
       env:
