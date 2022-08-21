@@ -72,9 +72,7 @@ jobs:
 
     - name: 'Deploy to App Engine'
       uses: 'google-github-actions/deploy-appengine@v0'
-      env:
-        RELEASE_VERSION: ${{ steps.vars.outputs.vname }}
       with:
         deliverables: 'app.yaml'
         promote: true
-        version: $RELEASE_VERSION
+        version: ${{ steps.vars.outputs.vname }}
