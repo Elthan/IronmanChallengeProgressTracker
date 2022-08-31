@@ -1,12 +1,12 @@
 import React from "react";
-import EdisonWhoSection from "../components/AboutMe/Sections/EdisonWhoSection";
-import HeroSection from "../components/AboutMe/Sections/HeroSection";
-import IronmanSection from "../components/AboutMe/Sections/IronmanSection";
-import GamesSection from "../components/AboutMe/Sections/GamesSection";
-import Footer from "../components/AboutMe/Footer";
+import EdisonWhoSection from "../components/About/Sections/EdisonWhoSection";
+import HeroSection from "../components/About/Sections/HeroSection";
+import IronmanSection from "../components/About/Sections/IronmanSection";
+import GamesSection from "../components/About/Sections/GamesSection";
+import Footer from "../components/About/Footer";
 
 
-function AboutMe() {  
+function About() {  
     return (
         <div className="">
             <HeroSection cName="" />
@@ -18,4 +18,4 @@ function AboutMe() {
     );
 }
 
-export default AboutMe;
+export default About;
