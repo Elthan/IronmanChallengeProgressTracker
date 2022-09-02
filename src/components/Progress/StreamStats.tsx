@@ -36,7 +36,6 @@ export default function StreamStats() {
             setUptime({days, hours, minutes, seconds});
         }
         calculateUptime();
-        setInterval(() => calculateUptime(), 1000)
     }, []);
 
     return (
