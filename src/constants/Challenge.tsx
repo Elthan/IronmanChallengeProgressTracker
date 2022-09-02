@@ -1,1 +1,2 @@
 export const START_TIME_UTC = "2022-07-14T17:02:46Z";
+export const END_TIME_UTC = "2022-08-31T13:02:00Z";

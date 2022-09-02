@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { START_TIME_UTC } from "../../constants/Challenge";
+import { END_TIME_UTC, START_TIME_UTC } from "../../constants/Challenge";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from '@heroicons/react/solid';
 
@@ -15,7 +15,7 @@ export default function StreamStats() {
 
     useEffect(() => {
         function calculateUptime() {
-            let delta = Math.abs(Date.now().valueOf() - new Date(START_TIME_UTC).valueOf());
+            let delta = Math.abs(new Date(END_TIME_UTC).valueOf() - new Date(START_TIME_UTC).valueOf());
             
             const msInDay = 24 * 60 * 60 * 1000;
             let days = Math.floor(delta / msInDay);
